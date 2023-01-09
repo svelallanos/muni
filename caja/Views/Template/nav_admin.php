@@ -1,159 +1,236 @@
-<div id="layoutSidenav_nav">
-  <nav class="sidenav shadow-right sidenav-light">
-    <div class="sidenav-menu">
-      <div class="nav accordion" id="accordionSidenav">
-        <!-- Sidenav Menu Heading (Account)-->
-        <!-- * * Note: * * Visible only on and above the sm breakpoint-->
-        <div class="sidenav-menu-heading d-sm-none">NOTIFICACIONES</div>
-        <a class="nav-link d-sm-none" href="#!">
-          <div class="nav-link-icon"><i data-feather="bell"></i></div>
-          Alertas
-          <span class="badge bg-warning-soft text-warning ms-auto">4 Nuevos!</span>
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
         </a>
-        <!-- Apartado de solo mantenimientos -->
-        <?php if (verificarPermiso($data, 6) || verificarPermiso($data, 7) || verificarPermiso($data, 10) || verificarPermiso($data, 8) || verificarPermiso($data, 9) || verificarPermiso($data, 1) || verificarPermiso($data, 2) || verificarPermiso($data, 11)) { ?>
-          <div class="sidenav-menu-heading">Configuraciones</div>
-        <?php } ?>
-        <!-- Modulo de mantenimientos de libros-->
-        <?php if (verificarPermiso($data, 6) || verificarPermiso($data, 7) || verificarPermiso($data, 10)) { ?>
-          <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLibrosMantenimiento" aria-expanded="false" aria-controls="collapseLibrosMantenimiento">
-            <div class="nav-link-icon"><i class="feather-server"></i></div>
-            Config. Libros
-            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-          </a>
-          <div class="collapse" id="collapseLibrosMantenimiento" data-bs-parent="#accordionSidenav">
-            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-              <?php if (verificarPermiso($data, 6)) { ?>
-                <a class="nav-link" href="<?= base_url() ?>ConfiguracionLibros/libros">Libros</a>
-              <?php } ?>
-              <?php if (verificarPermiso($data, 7)) { ?>
-                <a class="nav-link" href="<?= base_url() ?>ConfiguracionLibros/autores">Autores</a>
-              <?php } ?>
-              <?php if (verificarPermiso($data, 10)) { ?>
-                <a class="nav-link" href="<?= base_url() ?>ConfiguracionLibros/editoriales">Editoriales</a>
-              <?php } ?>
-            </nav>
-          </div>
-        <?php } ?>
-        <!-- Modulo de mantenimientos -->
-        <?php if (verificarPermiso($data, 8) || verificarPermiso($data, 9) || verificarPermiso($data, 1) || verificarPermiso($data, 2) || verificarPermiso($data, 11)) { ?>
-          <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseMantenimientos" aria-expanded="false" aria-controls="collapseMantenimientos">
-            <div class="nav-link-icon"><i class="fa-solid fa-gears"></i></div>
-            Mantenimientos
-            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-          </a>
-          <div class="collapse" id="collapseMantenimientos" data-bs-parent="#accordionSidenav">
-            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-              <?php if (verificarPermiso($data, 2)) { ?>
-                <a class="nav-link" href="<?= base_url() ?>Usuarios/lista_usuario">
-                  Usuarios
-                  <span class="badge bg-primary-soft text-primary ms-auto">Admin</span>
-                </a>
-              <?php } ?>
-              <?php if (verificarPermiso($data, 1)) { ?>
-                <a class="nav-link" href="<?= base_url() ?>Roles">
-                  Roles
-                  <span class="badge bg-primary-soft text-primary ms-auto">Admin</span>
-                </a>
-              <?php } ?>
-              <?php if (verificarPermiso($data, 8)) { ?>
-                <a class="nav-link" href="<?= base_url() ?>Usuarios/bloqueos">
-                  Bloqueos
-                  <span class="badge bg-primary-soft text-primary ms-auto">Admin</span>
-                </a>
-              <?php } ?>
-              <?php if (verificarPermiso($data, 9)) { ?>
-                <a class="nav-link" href="<?= base_url() ?>Usuarios/permisos_personalizados">
-                  Permisos personalizados
-                  <span class="badge bg-primary-soft text-primary ms-auto">Admin</span>
-                </a>
-              <?php } ?>
-              <?php if (verificarPermiso($data, 11)) { ?>
-                <a class="nav-link" href="<?= base_url() ?>indexacionLibros/elementos">
-                  Indexación de libros
-                  <span class="badge bg-primary-soft text-primary ms-auto">Admin</span>
-                </a>
-              <?php } ?>
-            </nav>
-          </div>
-        <?php } ?>
+      </li><!-- End Dashboard Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="components-alerts.html">
+              <i class="bi bi-circle"></i><span>Alerts</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-accordion.html">
+              <i class="bi bi-circle"></i><span>Accordion</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-badges.html">
+              <i class="bi bi-circle"></i><span>Badges</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-breadcrumbs.html">
+              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-buttons.html">
+              <i class="bi bi-circle"></i><span>Buttons</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-cards.html">
+              <i class="bi bi-circle"></i><span>Cards</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-carousel.html">
+              <i class="bi bi-circle"></i><span>Carousel</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-list-group.html">
+              <i class="bi bi-circle"></i><span>List group</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-modal.html">
+              <i class="bi bi-circle"></i><span>Modal</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-tabs.html">
+              <i class="bi bi-circle"></i><span>Tabs</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-pagination.html">
+              <i class="bi bi-circle"></i><span>Pagination</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-progress.html">
+              <i class="bi bi-circle"></i><span>Progress</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-spinners.html">
+              <i class="bi bi-circle"></i><span>Spinners</span>
+            </a>
+          </li>
+          <li>
+            <a href="components-tooltips.html">
+              <i class="bi bi-circle"></i><span>Tooltips</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="forms-elements.html">
+              <i class="bi bi-circle"></i><span>Form Elements</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="bi bi-circle"></i><span>Form Layouts</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-editors.html">
+              <i class="bi bi-circle"></i><span>Form Editors</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-validation.html">
+              <i class="bi bi-circle"></i><span>Form Validation</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
 
-        <!-- Fin del modulo de mantenimientos -->
-        <!-- Sidenav Heading (Custom)-->
-        <?php if (verificarPermiso($data, 22) || verificarPermiso($data, 23)) { ?>
-          <div class="sidenav-menu-heading">BIBLIOTECA FISICA</div>
-        <?php } ?>
-        <!-- Sidenav Accordion (Flows)-->
-        <?php if (verificarPermiso($data, 22) || verificarPermiso($data, 23)) { ?>
-          <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#biblioteca_item" aria-expanded="false" aria-controls="biblioteca_item">
-            <div class="nav-link-icon"><i class="fa-solid fa-book-atlas"></i></div>
-            Biblioteca
-            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-          </a>
-        <?php } ?>
-        <div class="collapse" id="biblioteca_item" data-bs-parent="#accordionSidenav">
-          <nav class="sidenav-menu-nested nav">
-            <?php if (verificarPermiso($data, 22)) { ?>
-              <a class="nav-link" href="#">Reservas</a>
-            <?php } ?>
-            <?php if (verificarPermiso($data, 23)) { ?>
-              <a class="nav-link" href="#">Prestamos</a>
-            <?php } ?>
-          </nav>
-        </div>
-        <div class="sidenav-menu-heading">BIBLIOTECA DIGITAL</div>
-        <?php if (verificarPermiso($data, 25)) { ?>
-          <a class="nav-link" href="<?= base_url() ?>Inicio">
-            <div class="nav-link-icon"><i class="fa-solid fa-house"></i></div>
-            Inicio
-          </a>
-        <?php } ?>
-        <?php if (verificarPermiso($data, 21)) { ?>
-          <a class="nav-link" href="<?= base_url() ?>BusquedaInteligente/motorBusqueda">
-            <div class="nav-link-icon"><i class="feather-search"></i></div>
-            Búsqueda Inteligente
-          </a>
-        <?php } ?>
-        <?php if (verificarPermiso($data, 25)) { ?>
-          <a class="nav-link" href="#libros">
-            <div class="nav-link-icon"><i class="feather-book"></i></div>
-            Libros
-          </a>
-          <a class="nav-link" href="#categorias">
-            <div class="nav-link-icon"><i class="feather-bookmark"></i></div>
-            Categorías
-          </a>
-          <a class="nav-link" href="#autores">
-            <div class="nav-link-icon"><i class="feather-user"></i></div>
-            Autores
-          </a>
-          <a class="nav-link" href="#editoriales">
-            <div class="nav-link-icon"><i class="fa-solid fa-building-columns"></i></div>
-            Editoriales
-          </a>
-          <a class="nav-link" href="#repositorios">
-            <div class="nav-link-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
-            Repositorios
-          </a>
-          <a class="nav-link" href="#enlaces">
-            <div class="nav-link-icon"><i class="feather-link"></i></div>
-            Enlaces académicos
-          </a>
-        <?php } ?>
-      </div>
-    </div>
-    <!-- Sidenav Footer-->
-    <div class="sidenav-footer">
-      <div class="sidenav-footer-content">
-        <div class="sidenav-footer-subtitle">Conectado como:</div>
-        <div class="sidenav-footer-title text-success">
-          <?php foreach ($_SESSION['biblioteca']['roles'] as $key => $value) {
-            echo '<span class="badge bg-primary-soft text-primary">' . $value . '</span> ';
-          } ?>
-        </div>
-      </div>
-    </div>
-  </nav>
-</div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-general.html">
+              <i class="bi bi-circle"></i><span>General Tables</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-data.html">
+              <i class="bi bi-circle"></i><span>Data Tables</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="charts-chartjs.html">
+              <i class="bi bi-circle"></i><span>Chart.js</span>
+            </a>
+          </li>
+          <li>
+            <a href="charts-apexcharts.html">
+              <i class="bi bi-circle"></i><span>ApexCharts</span>
+            </a>
+          </li>
+          <li>
+            <a href="charts-echarts.html">
+              <i class="bi bi-circle"></i><span>ECharts</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Charts Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="icons-bootstrap.html">
+              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+            </a>
+          </li>
+          <li>
+            <a href="icons-remix.html">
+              <i class="bi bi-circle"></i><span>Remix Icons</span>
+            </a>
+          </li>
+          <li>
+            <a href="icons-boxicons.html">
+              <i class="bi bi-circle"></i><span>Boxicons</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Icons Nav -->
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="users-profile.html">
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-faq.html">
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-register.html">
+          <i class="bi bi-card-list"></i>
+          <span>Register</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-error-404.html">
+          <i class="bi bi-dash-circle"></i>
+          <span>Error 404</span>
+        </a>
+      </li><!-- End Error 404 Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-blank.html">
+          <i class="bi bi-file-earmark"></i>
+          <span>Blank</span>
+        </a>
+      </li><!-- End Blank Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->

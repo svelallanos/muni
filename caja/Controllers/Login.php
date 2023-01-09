@@ -16,9 +16,9 @@ class Login extends Controllers
     }
 
     $data['page_id'] = 1;
-    $data['page_tag'] = "Caja - MDESV Segunda Jerusalen";
-    $data['page_title'] = "MDESV - Caja";
-    $data['page_name'] = "login";
+    $data['page_tag'] = "MDESV - Sistema Caja";
+    $data['page_title'] = ":. Login - Sistema Caja";
+    $data['page_name'] = "MDESV Sistema Caja";
     $data['page_css'] = "login/login";
     $data['page_function_js'] = "login/functions_login";
     $this->views->getView($this, "login", $data);
