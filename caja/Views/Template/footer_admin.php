@@ -1,10 +1,10 @@
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
   <div class="copyright">
-    &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+    &copy; Copyright <strong><span>SistemaCaja</span></strong>. Todos los derechos reservados
   </div>
   <div class="credits">
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    Desarrollado por <a href="#">Samuel Vela</a>
   </div>
 </footer><!-- End Footer -->
 
@@ -18,6 +18,7 @@
 
 <!-- Vendor JS Files -->
 <script src="<?= media() ?>/js/general/sweetalert2@11.js?version=<?= getVerion() ?>"></script>
+<script src="<?= media() ?>/js/general/all.js?version=<?= getVerion() ?>"></script>
 <script src="<?= media() ?>/js/general/jquery-3.6.0.min.js?version=<?= getVerion() ?>"></script>
 <script src="<?= media() ?>/js/general/jquery.dataTables.min.js?version=<?= getVerion() ?>"></script>
 <script src="<?= media() ?>/js/general/feather.min.js?version=<?= getVerion() ?>"></script>

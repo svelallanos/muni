@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
   <title><?= (isset($data['page_title']) ? $data['page_title'] : 'Sin nombre de página') ?></title>
   <!-- Favicons -->
@@ -15,6 +18,8 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link href="<?= media() ?>/css/general/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="<?= media() ?>/css/general/feather.css" rel="stylesheet" />
   <link href="<?= media() ?>/css/general/bootstrap.min.css" rel="stylesheet">
   <link href="<?= media() ?>/css/general/bootstrap-icons.css" rel="stylesheet">
   <link href="<?= media() ?>/css/general/boxicons.min.css" rel="stylesheet">
@@ -25,6 +30,11 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= media() ?>/css/general/style_admin.css" rel="stylesheet">
+  <link href="<?= media() ?>/css/general/style_customized.css?version=<?= getVerion() ?>" rel="stylesheet" />
+
+  <?php if (isset($data['page_css']) && !empty($data['page_css'])) { ?>
+    <link href="<?= media() ?>/css/<?= $data['page_css'] ?>.css?version=<?= getVerion() ?>" rel="stylesheet" />
+  <?php } ?>
 
 </head>
 
@@ -34,18 +44,15 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+      <a href="inicio" class="logo d-flex align-items-center">
+        <img src="<?= media() ?>/images/Insignia-MDESV.png" alt="">
+        <span class="d-none fs-4 d-lg-block fw-700">:: SISTEMA CAJA</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
     <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
+      <label class="fw-bold fs-5" style="color: #00a03a;">Municipalidad Distrital Elías Soplín Vargas</label>
     </div><!-- End Search Bar -->
 
     <nav class="header-nav ms-auto">
@@ -201,8 +208,8 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <img src="<?= media() ?>/images/fotoperfil/sin_foto.png" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Samuel Vela</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

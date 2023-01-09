@@ -28,6 +28,7 @@ class Usuarios extends Controllers
     parent::verificarLogin(true);
     parent::verificarPermiso(3, true);
 
+    // json('hola');
     $data['page_id'] = 6;
     $data['page_tag'] = "Biblioteca - IESP San Lucas";
     $data['page_title'] = "Biblioteca San Lucas";
@@ -242,7 +243,7 @@ class Usuarios extends Controllers
 
       $auxUsuariosSinBloquear[$key]['estado'] = '<div class="text-center"><span class="badge fw-bold rounded-pill text-success border bg-success-soft">Activo</span></div>';
 
-      $auxUsuariosSinBloquear[$key]['options'] = '<div class="text-center"><a href="editar?usuarios_id=' . $value['usuarios_id'] . '" class="btn btn-icon border text-body border-black btn-warning btn_editar_usuario" title="Editar usuario"><i class="fa-solid fa-user-pen"></i></a></div>';
+      $auxUsuariosSinBloquear[$key]['options'] = '<div class="text-center"><a href="editar?usuarios_id=' . $value['usuarios_id'] . '" class="btn btn-sm border text-body border-black btn-warning btn_editar_usuario" title="Editar usuario"><i class="fa-solid fa-user-pen"></i></a></div>';
     }
 
     json($auxUsuariosSinBloquear);
@@ -258,7 +259,7 @@ class Usuarios extends Controllers
       $lista_usuarios[$key]['numero'] = '<div class="text-center">' . ($key + 1) . '</div>';
       $lista_usuarios[$key]['apellidos'] = $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'];
 
-      $lista_usuarios[$key]['options'] = '<div class="text-center"><button data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" data-usuarios_id="' . $value['usuarios_id'] . '" class="btn btn-outline-danger btn-sm btn-icon open_modal_agregar_bloqueo" title="Editar usuario"><i class="feather-lock"></i></button></div>';
+      $lista_usuarios[$key]['options'] = '<div class="text-center"><button data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" data-usuarios_id="' . $value['usuarios_id'] . '" class="btn btn-outline-danger btn-sm open_modal_agregar_bloqueo" title="Editar usuario"><i class="feather-lock"></i></button></div>';
     }
 
     json($lista_usuarios);
@@ -274,7 +275,7 @@ class Usuarios extends Controllers
       $lista_usuarios[$key]['numero'] = '<div class="text-center">' . ($key + 1) . '</div>';
       $lista_usuarios[$key]['apellidos'] = $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'];
 
-      $lista_usuarios[$key]['options'] = '<div class="text-center"><a href="permisos_usuario?usuarios_id='.$value['usuarios_id'].'" data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" class="btn btn-outline-success btn-sm btn-icon open_modal_agregar_permiso" title="Editar usuario"><i class="fa-regular fa-hand-pointer"></i></a></div>';
+      $lista_usuarios[$key]['options'] = '<div class="text-center"><a href="permisos_usuario?usuarios_id='.$value['usuarios_id'].'" data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" class="btn btn-outline-success btn-sm open_modal_agregar_permiso" title="Editar usuario"><i class="fa-regular fa-hand-pointer"></i></a></div>';
     }
 
     json($lista_usuarios);
@@ -354,7 +355,7 @@ class Usuarios extends Controllers
       data-rol="' . $rol_usuario . '" 
       type="button" 
       title="Ver Usuario" 
-      class="btn btn-icon btn-pink btn_ver_usuario_intranet"><i class="fa-solid fa-id-card"></i></i></button></div>';
+      class="btn btn-pink btn_ver_usuario_intranet"><i class="fa-solid fa-id-card"></i></i></button></div>';
     }
 
     json($auxAlumnosSinCuenta);
@@ -397,7 +398,7 @@ class Usuarios extends Controllers
       $auxUsuariosBloqueados[$key]['bloqueo_fechacreacion'] = '<div class="text-center"><span class="fw-700">' . $value['bloqueo_fechacreacion']->format('h:i A') . '</span> - ' . $value['bloqueo_fechacreacion']->format('d/m/Y') . '</div>';
       $auxUsuariosBloqueados[$key]['usuarios_cantidad'] = '<span class="badge bg-warning-soft border border-warning text-body">' . $value['usuarios_cantidad'] . '</span>';
       $auxUsuariosBloqueados[$key]['nombre_completo'] = $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'];
-      $auxUsuariosBloqueados[$key]['options'] = '<button data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" data-dni="' . $value['usuarios_dni'] . '" data-usuarios_id="' . $value['usuarios_id'] . '" title="Detalle del bloqueo del usuario" class="btn btn-sm btn-blue btn-icon openmodal_detalle_bloqueo"><i class="feather-list"></i></button><button data-usuarios_id="' . $value['usuarios_id'] . '" data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" title="Desbloquear usuario" class="btn ml-2i btn-sm btn-success btn-icon btn_desbloquear"><i class="feather-unlock"></i></button>';
+      $auxUsuariosBloqueados[$key]['options'] = '<button data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" data-dni="' . $value['usuarios_dni'] . '" data-usuarios_id="' . $value['usuarios_id'] . '" title="Detalle del bloqueo del usuario" class="btn btn-sm btn-blue openmodal_detalle_bloqueo"><i class="feather-list"></i></button><button data-usuarios_id="' . $value['usuarios_id'] . '" data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" title="Desbloquear usuario" class="btn ml-2i btn-sm btn-success btn_desbloquear"><i class="feather-unlock"></i></button>';
     }
     json($auxUsuariosBloqueados);
   }
@@ -515,7 +516,7 @@ class Usuarios extends Controllers
       $auxPermisoPersonalizados[$key]['dpu_fechacreacion'] = '<div class="text-center"><span class="fw-700">' . $value['dpu_fechacreacion']->format('h:i A') . '</span> - ' . $value['dpu_fechacreacion']->format('d/m/Y') . '</div>';
       $auxPermisoPersonalizados[$key]['usuarios_cantidad'] = '<span class="badge bg-warning-soft border border-warning text-body">' . $value['usuarios_cantidad'] . '</span>';
       $auxPermisoPersonalizados[$key]['nombre_completo'] = $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'];
-      $auxPermisoPersonalizados[$key]['options'] = '<button data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" data-dni="' . $value['usuarios_dni'] . '" data-usuarios_id="' . $value['usuarios_id'] . '" title="Detalle de los permisos personalizados del usuario" class="btn btn-sm btn-blue btn-icon openmodal_permiso_personalizados"><i class="feather-list"></i></button><button data-usuarios_id="' . $value['usuarios_id'] . '" data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" title="Eliminar permisos personalizados" class="btn ml-2i btn-sm btn-danger btn-icon btn_eliminar_permisos_personalizados"><i class="fa-regular fa-trash-can"></i></button>';
+      $auxPermisoPersonalizados[$key]['options'] = '<button data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" data-dni="' . $value['usuarios_dni'] . '" data-usuarios_id="' . $value['usuarios_id'] . '" title="Detalle de los permisos personalizados del usuario" class="btn btn-sm btn-blue openmodal_permiso_personalizados"><i class="feather-list"></i></button><button data-usuarios_id="' . $value['usuarios_id'] . '" data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" title="Eliminar permisos personalizados" class="btn ml-2i btn-sm btn-danger btn_eliminar_permisos_personalizados"><i class="fa-regular fa-trash-can"></i></button>';
     }
     json($auxPermisoPersonalizados);
   }

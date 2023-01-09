@@ -75,7 +75,7 @@ function cargarListUsuarios() {
     aServerSide: true,
     language: languajeDefault,
     ajax: {
-      url: "selectsUsers",
+      url: "Usuarios/selectsUsers",
       dataSrc: "",
     },
     columns: [
