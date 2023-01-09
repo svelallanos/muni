@@ -1,7 +1,7 @@
 <?php
 
-const BASE_URL = 'http://localhost/biblioteca/';
-define('URL_BIBLIOTECA', 'http://localhost/biblioteca/');
+const BASE_URL = 'http://localhost/mdesv/caja/';
+define('URL_BIBLIOTECA', 'http://localhost/mdesv/caja/');
 
 $path = dirname(dirname(__FILE__));
 
@@ -13,9 +13,9 @@ define("PATH_VIEW", PATH_DIR . 'Views/');
 
 define("TIME_SESSION", array('horas' => 2, 'minutos' => 0));
 
-define("PATH_FOTOPERFIL", 'C:/laragon/www/biblioteca/Assets/images/fotoperfil/');
-define("PATH_FOTOAUTOR", 'C:/laragon/www/biblioteca/Assets/images/autores/');
-define("PATH_FOTOLIBRO", 'C:/laragon/www/biblioteca/Assets/images/libros/');
+define("PATH_FOTOPERFIL", 'C:/laragon/www/mdesv/caja/Assets/images/fotoperfil/');
+define("PATH_FOTOAUTOR", 'C:/laragon/www/mdesv/caja/Assets/images/autores/');
+define("PATH_FOTOLIBRO", 'C:/laragon/www/mdesv/caja/Assets/images/libros/');
 
 date_default_timezone_set('America/Lima');
 
