@@ -1,0 +1,106 @@
+.libro_imagen_tb {
+    width: 20px;
+    height: 25px;
+}
+
+#libro_imagen {
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.view_nombre_autor {
+    font-weight: bold;
+    color: #003cff;
+}
+
+.view_descripcion_autor {
+    text-align: justify;
+}
+
+.__imagen_libro {
+    width: 100%;
+    max-width: 300px;
+    max-height: 450px;
+    border-radius: 1rem;
+    border: 1px solid #000000;
+    box-shadow: 0px 0px 3px 1px #6a6a6a;
+}
+
+.dis_tabla_contenido {
+    background-color: transparent !important;
+    color: gray !important;
+    padding: 0;
+}
+
+.dis_tabla_contenido.active {
+    background-color: transparent !important;
+    color: #0D6EFD !important;
+    font-weight: 700;
+    /* text-decoration: underline !important; */
+}
+
+/* Diseño de la view buscador */
+.contenedor_buscador textarea {
+    border: none;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem !important;
+    min-height: 4.5rem !important;
+    box-shadow: 0px 0px 2px #838282;
+    color: #6a6a6a;
+}
+
+.contenedor_buscador textarea:focus {
+    outline: none;
+    border: 2px solid #00ab31;
+    box-shadow: none;
+}
+
+.contenedor_buscador button {
+    border: none;
+    box-shadow: 0px 0px 2px #838282;
+    border-radius: 1rem;
+    padding: 0.8rem 2.2rem;
+    font-size: 1rem;
+}
+
+/* diseño de la view de ver libro */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+.view_body_book {
+    overflow-y: hidden;
+    font-family: 'Bree Serif', serif;
+}
+
+.contenido {
+    height: calc(100vh - 140px);
+    overflow-y: scroll;
+}
+
+.contenido::-webkit-scrollbar {
+    display: none;
+}
+
+.box_terminologias {
+    height: calc(100vh - 140px);
+    overflow-y: scroll;
+}
+
+.box_terminologias::-webkit-scrollbar {
+    display: none;
+}
+
+.contenido section {
+    border: 0.8rem solid #cdcdcd;
+    margin-bottom: 0.8rem;
+}
+
+/* Marcar concepto */
+.marcar_concepto {
+    color: green;
+    font-weight: bold;
+    background-color: white;
+}

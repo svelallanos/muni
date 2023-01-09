@@ -1,0 +1,55 @@
+.card_principal{
+    border: 0px;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+.card_principal a {
+    border-radius: 0px !important;
+    background-color: white;
+    border: none;
+}
+
+.hoja {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.padding_0 {
+    padding: 0px;
+    padding-left: 0.75rem;
+    padding-right: 1.5rem;
+    text-align: justify;
+    text-indent: 20px;
+}
+
+.padding_1 {
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.padding_2 {
+    padding: 0.5rem;
+    padding-left: 2.25rem;
+}
+
+.padding_3 {
+    padding: 0.5rem;
+    padding-left: 3rem;
+}
+
+.padding_4 {
+    padding: 0.5rem;
+    padding-left: 3.75rem;
+}
+
+.padding_4 {
+    padding: 0.5rem;
+    padding-left: 4.5rem;
+}
+
+.img_concepto {
+    border-radius: 1rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}

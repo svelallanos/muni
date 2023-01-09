@@ -1,0 +1,20 @@
+.autor_imagen_tb{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.autor_imagen_form {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.view_nombre_autor {
+    font-weight: bold;
+    color: #003cff;
+}
+
+.view_descripcion_autor {
+    text-align: justify;
+}
