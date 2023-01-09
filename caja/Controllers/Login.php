@@ -16,8 +16,8 @@ class Login extends Controllers
     }
 
     $data['page_id'] = 1;
-    $data['page_tag'] = "Biblioteca - IESP San Lucas";
-    $data['page_title'] = "Biblioteca San Lucas";
+    $data['page_tag'] = "Caja - MDESV Segunda Jerusalen";
+    $data['page_title'] = "Sistema Caja";
     $data['page_name'] = "login";
     $data['page_css'] = "login/login";
     $data['page_function_js'] = "login/functions_login";

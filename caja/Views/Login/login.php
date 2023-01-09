@@ -3,36 +3,29 @@
 <html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+  <title><?= (isset($data['page_title']) ? $data['page_title'] : 'Sin nombre de página') ?></title>
 
-  <meta name="description" content="" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="<?= media() ?>/images/perfil_book3.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
-  <!-- Icons. Uncomment required icon fonts -->
   <link rel="stylesheet" href="<?= media() ?>/css/general/login/boxicons.css" />
 
-  <!-- Core CSS -->
   <link rel="stylesheet" href="<?= media() ?>/css/general/login/core.css" class="template-customizer-core-css" />
   <link rel="stylesheet" href="<?= media() ?>/css/general/login/theme-default.css" class="template-customizer-theme-css" />
   <link rel="stylesheet" href="<?= media() ?>/css/general/login/demo.css" />
-
-  <!-- Vendors CSS -->
   <link rel="stylesheet" href="<?= media() ?>/css/general/login/perfect-scrollbar.css" />
-
-  <!-- Page CSS -->
-  <!-- Page -->
   <link rel="stylesheet" href="<?= media() ?>/css/general/login/page-auth.css" />
-  <!-- Helpers -->
+
+  <link href="<?= media() ?>/css/general/style_customized.css?version=<?= getVerion() ?>" rel="stylesheet" />
+
   <script src="<?= media() ?>/js/general/login/helpers.js"></script>
 
   <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -51,7 +44,7 @@
           <div class="card-body">
             <!-- Logo -->
             <div class="app-brand justify-content-center">
-              <a href="index.html" class="app-brand-link gap-2">
+              <a href="login" class="app-brand-link gap-2">
                 <span class="app-brand-logo demo">
                   <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>
@@ -86,46 +79,35 @@
                     </g>
                   </svg>
                 </span>
-                <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                <span class="demo text-body fw-bolder fs-3">INICIO DE SESIÓN</span>
               </a>
             </div>
             <!-- /Logo -->
-            <h4 class="mb-2">Welcome to Sneat! 👋</h4>
-            <p class="mb-4">Please sign-in to your account and start the adventure</p>
+            <h4 class="mb-2">Bienvenidos a Caja 👋</h4>
+            <p class="mb-4">Inicia sesión en tu cuenta y comienza la aventura.</p>
 
-            <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+            <form id="form_login" class="mb-3">
               <div class="mb-3">
-                <label for="email" class="form-label">Email or Username</label>
-                <input type="text" class="form-control" id="email" name="email-username" placeholder="Enter your email or username" autofocus />
+                <label for="text" class="form-label fw-bold">USUARIO</label>
+                <input type="text" class="form-control" name="nombre_usuario" id="nombre_usuario" required placeholder="Ingrese nombre de usuario" autofocus />
               </div>
               <div class="mb-3 form-password-toggle">
                 <div class="d-flex justify-content-between">
-                  <label class="form-label" for="password">Password</label>
-                  <a href="auth-forgot-password-basic.html">
-                    <small>Forgot Password?</small>
-                  </a>
+                  <label class="form-label fw-bold" for="password">CONTRASEÑA</label>
                 </div>
                 <div class="input-group input-group-merge">
-                  <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                  <input type="password" class="form-control" name="pass_usuario" id="pass_usuario" required placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                   <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                 </div>
               </div>
               <div class="mb-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="remember-me" />
-                  <label class="form-check-label" for="remember-me"> Remember Me </label>
-                </div>
-              </div>
-              <div class="mb-3">
-                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                <button class="btn btn-primary d-grid w-100" type="submit">Acceder</button>
               </div>
             </form>
 
             <p class="text-center">
-              <span>New on our platform?</span>
-              <a href="auth-register-basic.html">
-                <span>Create an account</span>
-              </a>
+              <span class="fw-bold">Nota: </span>
+              <span class="text-primary">Sino tiene cuenta comunicate con el administrador.</span>
             </p>
           </div>
         </div>
@@ -134,25 +116,33 @@
     </div>
   </div>
 
+  <?php printHTMLRequired() ?>
+
+  <script type="text/javascript">
+    var base_url = '<?= base_url() ?>';
+  </script>
+
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
   <script src="<?= media() ?>/js/general/login/jquery.js"></script>
   <script src="<?= media() ?>/js/general/login/popper.js"></script>
   <script src="<?= media() ?>/js/general/login/bootstrap.js"></script>
   <script src="<?= media() ?>/js/general/login/perfect-scrollbar.js"></script>
-
   <script src="<?= media() ?>/js/general/login/menu.js"></script>
-  <!-- endbuild -->
-
-  <!-- Vendors JS -->
-
-  <!-- Main JS -->
   <script src="<?= media() ?>/js/general/login/main.js"></script>
-
-  <!-- Page JS -->
-
-  <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="<?= media() ?>/js/general/axios.min.js?version=<?= getVerion() ?>"></script>
+
+  <script src="<?= media() ?>/js/general/filerequired.js?version=<?= getVerion() ?>"></script>
+
+  <?php if (isset($data['page_function_js']) && !empty($data['page_function_js'])) { ?>
+    <script src="<?= media() ?>/js/<?= $data['page_function_js'] ?>.js?version=<?= getVerion() ?>"></script>
+  <?php } ?>
+
+  <!-- Modal de alertas de sesion -->
+  <?php getModal('modal_login', $data) ?>
+  <!-- Fin de alertas -->
+
 </body>
 
 </html>

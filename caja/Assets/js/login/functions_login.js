@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+  console.log(base_url);
+
   $("#form_login").submit(function (e) {
     e.preventDefault();
 
@@ -14,7 +17,7 @@ $(document).ready(function () {
     }
 
     abrirLoadingModal();
-    const request = axios.post("Login/validarLogin", formData);
+    const request = axios.post(base_url + "Login/validarLogin", formData);
 
     request.then((res) => {
       console.log(res.data);
