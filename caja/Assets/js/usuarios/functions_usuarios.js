@@ -91,36 +91,6 @@ function cargarListUsuarios() {
     bDestroy: true,
     iDisplayLength: 10,
     Order: [[0, "desc"]],
-    columnDefs: [
-      {
-        class: "col-1",
-        targets: 0,
-      },
-      {
-        class: "col-4",
-        targets: 1,
-      },
-      {
-        class: "col-1",
-        targets: 2,
-      },
-      {
-        class: "col-3",
-        targets: 3,
-      },
-      {
-        class: "col-3",
-        targets: 4,
-      },
-      {
-        class: "col-1",
-        targets: 5,
-      },
-      {
-        class: "col-1",
-        targets: 6,
-      },
-    ],
   });
 }
 

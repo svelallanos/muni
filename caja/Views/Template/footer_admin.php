@@ -21,6 +21,7 @@
 <script src="<?= media() ?>/js/general/all.js?version=<?= getVerion() ?>"></script>
 <script src="<?= media() ?>/js/general/jquery-3.6.0.min.js?version=<?= getVerion() ?>"></script>
 <script src="<?= media() ?>/js/general/jquery.dataTables.min.js?version=<?= getVerion() ?>"></script>
+<script src="<?= media() ?>/js/general/dataTables.bootstrap5.min.js?version=<?= getVerion() ?>"></script>
 <script src="<?= media() ?>/js/general/feather.min.js?version=<?= getVerion() ?>"></script>
 <script src="<?= media() ?>/js/general/apexcharts.min.js"></script>
 <script src="<?= media() ?>/js/general/bootstrap.bundle.min.js"></script>

@@ -16,11 +16,11 @@
         <div class="card">
           <div class="card-body">
             <div class="col-md-12 border border-2 border-secondary rounded p-2 mb-4">
-              <a href="nuevo" class="btn btn-primary"><i class="fa-solid fa-square-plus"></i> &nbsp Agregar</a>
-              <button class="btn btn-danger"><i class="fa-solid fa-file-contract"></i> &nbsp Reporte</button>
+              <a href="nuevo" class="btn btn-sm btn-primary"><i class="fa-solid fa-square-plus"></i> &nbsp Agregar</a>
+              <button class="btn btn-sm btn-danger"><i class="fa-solid fa-file-contract"></i> &nbsp Reporte</button>
             </div>
 
-            <table id="lista_usuarios" class="display compact w-100">
+            <table id="lista_usuarios" class="table table-hover table-bordered w-100">
               <thead>
                 <tr>
                   <th>N°</th>
