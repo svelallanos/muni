@@ -7,7 +7,6 @@ var imgSeleccionada = 1;
 $(document).ready(function () {
   cargarListaUsuariosBloqueados();
   cargarListUsuarios();
-  listaUsuariosIntranet();
   openModal();
   actualizarUsuario();
   actualizarImagenPerfil();
@@ -126,47 +125,6 @@ function cargarTablaUsuarios() {
       {
         class: "col-4",
         targets: 2,
-      },
-      {
-        class: "col-3",
-        targets: 3,
-      },
-      {
-        class: "col-1",
-        targets: 4,
-      },
-    ],
-  });
-}
-
-function listaUsuariosIntranet() {
-  lista_AlumnosIntranet = $("#tb_usuarios_intranet").DataTable({
-    aProcessing: true,
-    aServerSide: true,
-    language: languajeDefault,
-    ajax: {
-      url: "selectsUsuariosIntranet",
-      dataSrc: "",
-    },
-    columns: [
-      { data: "numero" },
-      { data: "nombre_completo" },
-      { data: "usuarios_dni" },
-      { data: "estado" },
-      { data: "options" },
-    ],
-    resonsieve: "true",
-    bDestroy: true,
-    iDisplayLength: 10,
-    Order: [[0, "desc"]],
-    columnDefs: [
-      {
-        class: "col-1",
-        targets: 0,
-      },
-      {
-        class: "col-5",
-        targets: 1,
       },
       {
         class: "col-3",

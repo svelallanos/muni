@@ -17,10 +17,20 @@
   <section class="section">
     <div class="row">
       <div class="col-lg-4">
-        <div class="mensaje_file"></div>
+        <div class="mensaje_file">
+          <div class="alert alert-white alert-solid alert-icon __respuesta_mesaje_danger class_23" role="alert">
+            <button class="btn-close bg-white border border-dark" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert-icon-aside bg-danger">
+            <i class="fa-brands fa-renren"></i>
+            </div>
+            <div class="alert-icon-content" style="padding: 8px; margin-right: 30px;">
+              Alerta
+            </div>
+          </div>
+        </div>
         <!-- Profile picture card-->
         <div class="card mb-4 mb-xl-0">
-          <div class="card-header text-white bg-success fw-bold">Imagen de Perfil</div>
+          <div class="card-header fw-bold bg-primary-10" style="color: #012970;">Imagen de Perfil</div>
           <div class="card-body text-center">
             <!-- Profile picture image-->
             <img data-path="<?= media() ?>/images/fotoperfil/" class="__img_editarperfil img-account-profile rounded-circle mb-2" src="<?= media() ?>/images/fotoperfil/<?= (empty($data['data-usuario']['usuarios_foto'] || is_null($data['data-usuario']['usuarios_foto'])) ? 'sin_foto.png' : $data['data-usuario']['usuarios_foto']) ?>" alt="">
@@ -47,7 +57,7 @@
         <!-- Account details card-->
         <div class="mensaje"></div>
         <div class="card mb-4">
-          <div class="card-header">Actualizar datos de perfil</div>
+          <div class="card-header bg-primary-10 fw-bold" style="color: #012970;">Actualizar datos de perfil</div>
           <div class="card-body">
             <form id="form_update_usuario" data-usuario_id="<?= $data['data-usuario']['usuarios_id'] ?>">
               <!-- Form Row-->

@@ -9245,6 +9245,12 @@ fieldset:disabled .btn {
     background-image: var(--bs-gradient) !important
 }
 
+/* Estilos agregado */
+
+.bg-primary-10 {
+    background-color: #a5ccff !important;
+}
+
 .user-select-all {
     -webkit-user-select: all !important;
     -moz-user-select: all !important;
