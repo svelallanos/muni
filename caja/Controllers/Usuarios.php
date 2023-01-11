@@ -9,30 +9,15 @@ class Usuarios extends Controllers
     parent::__construct();
   }
 
-  public function lista_usuario()
-  {
-    parent::verificarLogin(true);
-    parent::verificarPermiso(2, true);
-
-    // json('estamos en usuario');
-    $data['page_id'] = 3;
-    $data['page_tag'] = "Biblioteca - IESP San Lucas";
-    $data['page_title'] = "Biblioteca San Lucas";
-    $data['page_name'] = "Tipo de usuarios";
-    $data['page_css'] = "usuarios/usuarios";
-    $this->views->getView($this, "lista_usuario", $data);
-  }
-
   public function usuarios()
   {
     parent::verificarLogin(true);
     parent::verificarPermiso(3, true);
 
-    // json('hola');
     $data['page_id'] = 6;
-    $data['page_tag'] = "Biblioteca - IESP San Lucas";
-    $data['page_title'] = "Biblioteca San Lucas";
-    $data['page_name'] = "Usuarios Administradores";
+    $data['page_tag'] = "MDESV - Sistema Caja";
+    $data['page_title'] = ":. Usuarios - Sistema Caja";
+    $data['page_name'] = "MDESV Sistema Caja";
     $data['page_css'] = "usuarios/usuarios";
     $data['page_function_js'] = "usuarios/functions_usuarios";
     $this->views->getView($this, "usuarios", $data);
@@ -93,9 +78,9 @@ class Usuarios extends Controllers
     $seleccionar_roles = $this->model->selectsRoles();
 
     $data['page_id'] = 4;
-    $data['page_tag'] = "Biblioteca - IESP San Lucas";
-    $data['page_title'] = "Biblioteca San Lucas";
-    $data['page_name'] = "Editar Usuario";
+    $data['page_tag'] = "MDESV - Sistema Caja";
+    $data['page_title'] = ":. Editar Usuarios - Sistema Caja";
+    $data['page_name'] = "MDESV Sistema Caja";
     $data['page_css'] = "usuarios/usuarios";
     $data['page_function_js'] = "usuarios/functions_usuarios";
     $data['data-usuario'] = $seleccionar_usuario;
@@ -243,7 +228,7 @@ class Usuarios extends Controllers
 
       $auxUsuariosSinBloquear[$key]['estado'] = '<div class="text-center"><span class="badge fw-bold rounded-pill text-success border bg-success-soft">Activo</span></div>';
 
-      $auxUsuariosSinBloquear[$key]['options'] = '<div class="text-center"><a href="editar?usuarios_id=' . $value['usuarios_id'] . '" class="btn btn-sm border text-body border-black btn-warning btn_editar_usuario" title="Editar usuario"><i class="fa-solid fa-user-pen"></i></a></div>';
+      $auxUsuariosSinBloquear[$key]['options'] = '<div class="text-center"><a href="Usuarios/editar?usuarios_id=' . $value['usuarios_id'] . '" class="btn btn-sm border text-body border-black btn-warning btn_editar_usuario" title="Editar usuario"><i class="fa-solid fa-user-pen"></i></a></div>';
     }
 
     json($auxUsuariosSinBloquear);

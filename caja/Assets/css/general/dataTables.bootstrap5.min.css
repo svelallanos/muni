@@ -42,6 +42,21 @@ table.dataTable thead>tr>td.sorting_desc_disabled {
     /* Agregado */
     background-color: #c5e7c5;
     border: 1px solid #9f9b9b;
+    border-left: none;
+}
+
+/* Agregado */
+table.dataTable thead>tr>th.sorting:nth-child(1),
+table.dataTable thead>tr>th.sorting_asc:nth-child(1),
+table.dataTable thead>tr>th.sorting_desc:nth-child(1),
+table.dataTable thead>tr>th.sorting_asc_disabled:nth-child(1),
+table.dataTable thead>tr>th.sorting_desc_disabled:nth-child(1),
+table.dataTable thead>tr>td.sorting:nth-child(1),
+table.dataTable thead>tr>td.sorting_asc:nth-child(1),
+table.dataTable thead>tr>td.sorting_desc:nth-child(1),
+table.dataTable thead>tr>td.sorting_asc_disabled:nth-child(1),
+table.dataTable thead>tr>td.sorting_desc_disabled:nth-child(1) {
+    border-left: 1px solid #9f9b9b;
 }
 
 table.dataTable thead>tr>th.sorting:before,
@@ -496,6 +511,9 @@ table.table-bordered.dataTable td {
     border-bottom-width: 1px;
     /* Agregado */
     padding: 0.4rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    vertical-align: middle;
 }
 
 div.dataTables_scrollHead table.table-bordered {

@@ -14,8 +14,7 @@
   <link href="<?= media() ?>/images/Insignia-MDESV.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="<?= media() ?>/css/general/font_admin.css" rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="<?= media() ?>/css/general/feather.css" rel="stylesheet" />
@@ -46,7 +45,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="inicio" class="logo d-flex align-items-center">
         <img src="<?= media() ?>/images/Insignia-MDESV.png" alt="">
-        <span class="d-none fs-4 d-lg-block fw-700">:: SISTEMA CAJA</span>
+        <span class="d-none fs-4 d-lg-block fw-bold"> SISTEMA CAJA</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -57,12 +56,6 @@
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
 
         <li class="nav-item dropdown">
 
@@ -252,9 +245,9 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>logout">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Desconectar</span>
               </a>
             </li>
 
