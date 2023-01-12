@@ -18,14 +18,14 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="mensaje_file">
-          <div class="alert alert-white alert-solid alert-icon __respuesta_mesaje_danger class_23" role="alert">
-            <button class="btn-close bg-white border border-dark" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div class="alert-icon-aside bg-danger">
-            <i class="fa-brands fa-renren"></i>
+          <div class="alert __respuesta_mesaje_danger alert-dismissible fade show d-flex align-items-center p-0" role="alert">
+            <div class="alert-icon-aside bg-danger p-1">
+              <i class="bi bi-exclamation-octagon me-1"></i>
             </div>
-            <div class="alert-icon-content" style="padding: 8px; margin-right: 30px;">
-              Alerta
+            <div class="alert-icon-content">
+              A simple danger alert with icon—check it out!
             </div>
+            <button type="button" class="btn-close border border-dark p-1 m-0" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         </div>
         <!-- Profile picture card-->
