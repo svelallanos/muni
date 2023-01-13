@@ -18,15 +18,6 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="mensaje_file">
-          <div class="alert __respuesta_mesaje_danger alert-dismissible fade show d-flex align-items-center p-0" role="alert">
-            <div class="alert-icon-aside bg-danger p-1">
-              <i class="bi bi-exclamation-octagon me-1"></i>
-            </div>
-            <div class="alert-icon-content">
-              A simple danger alert with icon—check it out!
-            </div>
-            <button type="button" class="btn-close border border-dark p-1 m-0" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
         </div>
         <!-- Profile picture card-->
         <div class="card mb-4 mb-xl-0">
@@ -126,7 +117,7 @@
               <div class="row">
                 <div class="col-12 text-start text-md-end">
                   <button class="btn btn-primary" type="submit"><i class="feather-save"></i> &nbsp Guardar Cambios</button>
-                  <a href="usuarios" class="btn btn-secondary text-center"><i class="feather-x-circle"></i> &nbsp Cancelar</a>
+                  <a href="<?= base_url() ?>/Usuarios" class="btn btn-secondary text-center"><i class="feather-x-circle"></i> &nbsp Cancelar</a>
                 </div>
               </div>
             </form>

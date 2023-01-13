@@ -1,59 +1,58 @@
 $(document).ready(function () {
 
-	setTimeout(() => {
-		$('.flash_msg_remove').remove();
-	}, 120000);
+  setTimeout(() => {
+    $('.flash_msg_remove').remove();
+  }, 120000);
 
-	$(document).on("click", ".flash_msg_close", function (e) {
-		$(this).parent().remove();
-	});
+  $(document).on("click", ".flash_msg_close", function (e) {
+    $(this).parent().remove();
+  });
 
-	$(document).on("click", ".click_for_loading", function (e) {
+  $(document).on("click", ".click_for_loading", function (e) {
 
-		abrirLoadingModal($(this).attr('data-load'));
-		controlarOpenCloseModalLoas = true;
+    abrirLoadingModal($(this).attr('data-load'));
+    controlarOpenCloseModalLoas = true;
 
-		if (e.currentTarget.localName.toLowerCase() == 'a') 
-		{
-			let hrefAttr = $.trim($(this).attr('href'));
-			
-			if (hrefAttr != undefined && hrefAttr != '' && hrefAttr != null) {
-				e.preventDefault();
-				location.href = hrefAttr;
-			}			
-		}	
+    if (e.currentTarget.localName.toLowerCase() == 'a') {
+      let hrefAttr = $.trim($(this).attr('href'));
 
-	});
+      if (hrefAttr != undefined && hrefAttr != '' && hrefAttr != null) {
+        e.preventDefault();
+        location.href = hrefAttr;
+      }
+    }
 
-	$(document).on("submit", ".submit_for_loading", function (e) {
+  });
 
-		abrirLoadingModal($(this).attr('data-load'));
-		controlarOpenCloseModalLoas = true;
-		e.preventDefault();
-		e.target.submit();
+  $(document).on("submit", ".submit_for_loading", function (e) {
 
-	});
+    abrirLoadingModal($(this).attr('data-load'));
+    controlarOpenCloseModalLoas = true;
+    e.preventDefault();
+    e.target.submit();
 
-	if ($('.reload_open_modal_load').length > 0) {
-		window.onbeforeunload = function() {
-			if (controlarOpenCloseModalLoas == false) {
-				abrirLoadingModal();
-			}			
-		};
-	}
+  });
 
-	$('#modal_soon_logout .btn').click(function () {
-		location.reload();
-	});
+  if ($('.reload_open_modal_load').length > 0) {
+    window.onbeforeunload = function () {
+      if (controlarOpenCloseModalLoas == false) {
+        abrirLoadingModal();
+      }
+    };
+  }
 
-	$('#modal_session_expired .btn').click(function () {
-		location.reload();
-	});
+  $('#modal_soon_logout .btn').click(function () {
+    location.reload();
+  });
+
+  $('#modal_session_expired .btn').click(function () {
+    location.reload();
+  });
 });
 
 // Funcion para cerrar el modal de actualizar página
-function uploadPage(idPage, habilitar = false){
-  if(habilitar){
+function uploadPage(idPage, habilitar = false) {
+  if (habilitar) {
     $(idPage).removeClass('hide');
     $(idPage).addClass('show');
     $('.btn_close_page').click(function () {
@@ -63,14 +62,14 @@ function uploadPage(idPage, habilitar = false){
   }
 }
 
-function iconLoader(clase, estado){
-  if(estado === 'show'){
+function iconLoader(clase, estado) {
+  if (estado === 'show') {
     $(clase).removeClass('hide');
     $(clase).addClass(estado);
-  }else if(estado === 'hide'){
+  } else if (estado === 'hide') {
     $(clase).removeClass('show');
     $(clase).addClass(estado);
-  }else{
+  } else {
     console.log('La clase Loader y el estado no estan definido correctamente.');
   }
 }
@@ -318,84 +317,82 @@ const languajeDefault = {
   }
 }
 
-function abrirLoadingModal(text = null) 
-{
-	controlarOpenCloseModalLoas = true;
+function abrirLoadingModal(text = null) {
+  controlarOpenCloseModalLoas = true;
 
-	switch (text) {
-		case 'Save':
-			text = 'Guardando';
-			break;
-		case 'Cancel':
-			text = 'Cancelando';
-			break;
-		case 'Update':
-			text = 'Actualizando';
-			break;
-		case 'Delete':
-			text = 'Borrando';
-			break;
-		case 'Send':
-			text = 'Enviando';
-			break;
-		default:
-			text = 'Cargando';
-			break;
-	}
-	
-	$('#semi_modal_loading ._modal_loader--text').html(text);
-	$('#bg_semi_modal_loading').removeClass('d-none');
-	$('#semi_modal_loading').modal('show');
-	$('#semi_modal_loading').addClass('fade');
+  switch (text) {
+    case 'Save':
+      text = 'Guardando';
+      break;
+    case 'Cancel':
+      text = 'Cancelando';
+      break;
+    case 'Update':
+      text = 'Actualizando';
+      break;
+    case 'Delete':
+      text = 'Borrando';
+      break;
+    case 'Send':
+      text = 'Enviando';
+      break;
+    default:
+      text = 'Cargando';
+      break;
+  }
+
+  $('#semi_modal_loading ._modal_loader--text').html(text);
+  $('#bg_semi_modal_loading').removeClass('d-none');
+  $('#semi_modal_loading').modal('show');
+  $('#semi_modal_loading').addClass('fade');
 }
 
-function cerrarLoadingModal() 
-{
-	controlarOpenCloseModalLoas = false;
-	$('#semi_modal_loading').removeClass('fade');
-	$('#semi_modal_loading').modal('hide');
-	$('#bg_semi_modal_loading').addClass('d-none');
+function cerrarLoadingModal() {
+  controlarOpenCloseModalLoas = false;
+  $('#semi_modal_loading').removeClass('fade');
+  $('#semi_modal_loading').modal('hide');
+  $('#bg_semi_modal_loading').addClass('d-none');
 }
 
-function msgAlert(type = 'danger', text = 'Ocurrió un error desconocido', time=120000)
-{
+function msgAlert(type = 'danger', text = 'Ocurrió un error desconocido', time = 120000) {
   let icon = '';
-	let retorno = '';
-	let clase =  'class_' + makeId(30);
+  let retorno = '';
+  let clase = 'class_' + makeId(30);
 
   text = text.trim();
 
   switch (type) {
     case 'success':
       icon = '<i class="ml-1 far fs-22 fa-check-circle"></i>';
-			text = '<span class="fw-500">ÉXITO</span>: ' + text;
+      text = '<span class="fw-500">ÉXITO</span>: ' + text;
       break;
     case 'danger':
     case 'error':
-			icon = '<i class="ml-1 far fs-22 fa-times-circle"></i>';
-			text = '<span class="fw-500">ERROR</span>: Ocurrió un error desconocido.';
+      icon = '<i class="ml-1 far fs-22 fa-times-circle"></i>';
+      text = '<span class="fw-500">ERROR</span>: Ocurrió un error desconocido.';
       type = 'danger';
       break;
     case 'info':
       icon = '<i class="ml-1 far fs-22 fa-solid fa-triangle-exclamation"></i>';
-			text = '<span class="fw-500">NOTA</span>: ' + text;
+      text = '<span class="fw-500">NOTA</span>: ' + text;
       break;
     case 'warning':
-      icon = '<i class="ml-1 far fs-22 fa-solid fa-circle-info"></i>'; 
-			text = '<span class="fw-500">ALERTA</span>: ' + text;
+      icon = '<i class="ml-1 far fs-22 fa-solid fa-circle-info"></i>';
+      text = '<span class="fw-500">ALERTA</span>: ' + text;
       break;
   }
 
-  retorno =  `<div class="alert alert-white alert-solid alert-icon __respuesta_mesaje_${type} ${clase}" role="alert">
-            <button class="btn-close bg-white border border-dark" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div class="alert-icon-aside bg-${type}">
-              ${icon}
-            </div>
-            <div class="alert-icon-content" style="padding: 8px; margin-right: 30px;">
-            ${text}
-            </div>
-          </div>`;
-  
+  retorno = `<div class="alert __respuesta_mesaje_${type} ${clase} alert-dismissible fade show d-flex align-items-center" role="alert">
+                <div class="alert-icon-aside bg-${type}">
+                ${icon}
+                </div>
+                <div class="alert-icon-content">
+                ${text}
+                </div>
+                <button type="button" class="btn-close border border-dark p-1 mt-2" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          `;
+
   setTimeout(() => {
     $('.' + clase).remove();
   }, time);
@@ -405,22 +402,21 @@ function msgAlert(type = 'danger', text = 'Ocurrió un error desconocido', time=
 
 function msgFlash(classapend = '', text = '', type = '', time = 3000) {
   classapend = classapend.trim();
-  $('.'+classapend).append(msgAlert(type,text,time));
+  $('.' + classapend).append(msgAlert(type, text, time));
 }
 
-function makeId(length) 
-{
-  var result           = '';
-  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+function makeId(length) {
+  var result = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   var charactersLength = characters.length;
 
-  for ( var i = 0; i < length; i++ ) {
+  for (var i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
 
   let date = new Date();
-  result = result + date.getFullYear() + '' + date.getMonth() + '' + date.getDay() + '' + date.getDate() + 
-  '' + date.getHours() + '' + date.getMinutes() + '' + date.getSeconds() + '' + date.getMilliseconds();
+  result = result + date.getFullYear() + '' + date.getMonth() + '' + date.getDay() + '' + date.getDate() +
+    '' + date.getHours() + '' + date.getMinutes() + '' + date.getSeconds() + '' + date.getMilliseconds();
 
   return result;
 }

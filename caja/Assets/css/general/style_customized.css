@@ -22,6 +22,7 @@
     border-radius: 8px !important;
     margin-bottom: 5px;
     color: #058d05 !important;
+    padding: 0px 48px 0px 0px !important;
 }
 
 .__respuesta_mesaje_danger {
@@ -29,6 +30,7 @@
     border-radius: 8px !important;
     margin-bottom: 5px;
     color: #a20202 !important;
+    padding: 0px 48px 0px 0px !important;
 }
 
 .__respuesta_mesaje_info {
@@ -36,6 +38,7 @@
     border-radius: 8px !important;
     margin-bottom: 5px;
     color: #00686b !important;
+    padding: 0px 48px 0px 0px !important;
 }
 
 .__respuesta_mesaje_warning {
@@ -43,6 +46,7 @@
     border-radius: 8px !important;
     margin-bottom: 5px;
     color: #bf7f01 !important;
+    padding: 0px 48px 0px 0px !important;
 }
 
 .__respuesta_mesaje_success .alert-icon-aside,
@@ -50,9 +54,8 @@
 .__respuesta_mesaje_info .alert-icon-aside,
 .__respuesta_mesaje_warning .alert-icon-aside {
     color: white;
-    padding: 0px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 10px;
+    margin-right: 5px;
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
 }

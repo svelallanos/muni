@@ -16,7 +16,7 @@
         <div class="card">
           <div class="card-body">
             <div class="col-md-12 border border-2 border-secondary rounded p-2 mb-4">
-              <a href="nuevo" class="btn btn-sm btn-primary"><i class="fa-solid fa-square-plus"></i> &nbsp Agregar</a>
+              <a href="<?= base_url() ?>Usuarios/nuevo" class="btn btn-sm btn-primary"><i class="fa-solid fa-square-plus"></i> &nbsp Agregar</a>
               <button class="btn btn-sm btn-danger"><i class="fa-solid fa-file-contract"></i> &nbsp Reporte</button>
             </div>
 

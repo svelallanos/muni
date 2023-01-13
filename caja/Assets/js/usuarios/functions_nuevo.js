@@ -41,7 +41,7 @@ function agregarUsuario() {
     const form = document.getElementById('form_agregar_usuario');
     const formData = new FormData(form);
     abrirLoadingModal();
-    const request = axios.post('agregarUsuario', formData);
+    const request = axios.post(base_url + 'Usuarios/agregarUsuario', formData);
 
     request.then(res => {
       msgFlash("mensaje", res.data.msg, res.data.value, 5000);

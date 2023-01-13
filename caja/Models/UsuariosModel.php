@@ -279,7 +279,7 @@ class UsuariosModel extends Mysql
     // Encriptamos la contraseña
     $password = password_hash($usuarios_password, PASSWORD_BCRYPT);
 
-    $sql = 'INSERT INTO usuarios(usuarios_login,usuarios_nombres,usuarios_paterno,usuarios_materno,usuarios_dni,usuarios_email,usuarios_password) VALUES (:usuarios_login, :usuarios_nombres, :usuarios_paterno, :usuarios_materno, :usuarios_dni, :usuarios_email, :usuarios_password)';
+    $sql = 'INSERT INTO usuarios(usuarios_login,usuarios_nombres,usuarios_paterno,usuarios_materno,usuarios_dni,usuarios_email,usuarios_password, usuarios_foto) VALUES (:usuarios_login, :usuarios_nombres, :usuarios_paterno, :usuarios_materno, :usuarios_dni, :usuarios_email, :usuarios_password, :usuarios_foto)';
     $arrData = [
       'usuarios_login' => $usuarios_login,
       'usuarios_nombres' => $usuarios_nombres,
@@ -287,7 +287,8 @@ class UsuariosModel extends Mysql
       'usuarios_materno' => $usuarios_materno,
       'usuarios_dni' => $usuarios_dni,
       'usuarios_email' => $usuarios_email,
-      'usuarios_password' => $password
+      'usuarios_password' => $password,
+      'usuarios_foto' => 'sin_foto.png'
     ];
     $request = $this->insert($sql, $arrData, DB_BIB);
     return $request;
