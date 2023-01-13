@@ -2,7 +2,7 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Usuarios</h1>
+    <h1><?= !empty($data['page_name']) ? $data['page_name'] : 'Sin Nombre' ?></h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Mantenimientos</li>

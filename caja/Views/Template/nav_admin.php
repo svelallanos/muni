@@ -21,17 +21,17 @@
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="<?= base_url() ?>Roles">
               <i class="bi bi-circle"></i><span>Roles</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="<?= base_url() ?>Usuarios/bloqueos">
               <i class="bi bi-circle"></i><span>Bloqueos</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
+            <a href="<?= base_url() ?>Usuarios/permisos_personalizados">
               <i class="bi bi-circle"></i><span>Permisos Personalizados</span>
             </a>
           </li>

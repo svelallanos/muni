@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="inicio" class="logo d-flex align-items-center">
+      <a href="<?= base_url() ?>Inicio" class="logo d-flex align-items-center">
         <img src="<?= media() ?>/images/Insignia-MDESV.png" alt="">
         <span class="d-none fs-4 d-lg-block fw-bold"> SISTEMA CAJA</span>
       </a>

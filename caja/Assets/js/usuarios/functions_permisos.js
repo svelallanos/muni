@@ -123,7 +123,7 @@ function openModal() {
             html += `<tr>
                         <td class="text-center">${element.numero}</td>
                         <td>${element.permiso_nombre}</td>
-                        <td class="text-center"><button title="Eliminar motivo de bloqueo" data-permisopersonalizado_id="${element.dpu_id}" type="button" class="btn btn-sm btn-icon btn-danger-soft text-red border border-red btn_eliminar_permiso"><i class="feather-trash-2"></i></button></td>
+                        <td class="text-center"><button title="Eliminar motivo de bloqueo" data-permisopersonalizado_id="${element.dpu_id}" type="button" class="btn btn-sm btn-icon btn-danger text-red border border-red btn_eliminar_permiso"><i class="feather-trash-2"></i></button></td>
                       </tr>`;
           });
         }

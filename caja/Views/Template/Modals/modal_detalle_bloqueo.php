@@ -32,7 +32,7 @@
               <div class="collapse" id="lista_motivos_bloqueo">
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table display">
+                    <table class="table table-hover table-bordered table-striped w-100">
                       <thead>
                         <tr>
                           <th class="text-center">N°</th>
@@ -59,13 +59,13 @@
 <div class="modal fade" id="modal_list_usuarios" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header bg-primary">
+      <div class="modal-header" style="background-color: #0cd10c;">
         <h1 class="fw-bold modal-title fs-5 text-white">LISTA DE USUARIOS</h1>
         <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="table-responsive">
-          <table id="tb_usuarios" class="display compact w-100">
+          <table id="tb_usuarios" class="table table-hover table-bordered table-striped w-100">
             <thead>
               <tr>
                 <th>N°</th>
@@ -80,9 +80,6 @@
           </table>
         </div>
       </div>
-      <div class="modal-footer p-2">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> &nbsp Cerrar</button>
-      </div>
     </div>
   </div>
 </div>
@@ -91,7 +88,7 @@
 <div class="modal fade" id="modal_bloqueos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header bg-danger">
+      <div class="modal-header" style="background-color: #e50b33;">
         <h1 class="fw-700 modal-title fs-5 text-white">MOTIVO BLOQUEO</h1>
         <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -117,7 +114,7 @@
           </div>
         </div>
         <div class="modal-footer p-2">
-          <button type="submit" class="btn btn-success"><i class="feather-plus-circle"></i> &nbsp Agregar</button>
+          <button type="submit" class="btn btn-primary"><i class="feather-plus-circle"></i> &nbsp Agregar</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-regular fa-circle-xmark"></i> &nbsp Cerrar</button>
         </div>
       </form>

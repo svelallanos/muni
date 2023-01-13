@@ -2,7 +2,7 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Usuarios</h1>
+    <h1><?= !empty($data['page_name']) ? $data['page_name'] : 'Sin Nombre' ?></h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Mantenimientos</li>
@@ -19,8 +19,7 @@
               <a href="<?= base_url() ?>Usuarios/nuevo" class="btn btn-sm btn-primary"><i class="fa-solid fa-square-plus"></i> &nbsp Agregar</a>
               <button class="btn btn-sm btn-danger"><i class="fa-solid fa-file-contract"></i> &nbsp Reporte</button>
             </div>
-
-            <table id="lista_usuarios" class="table table-hover table-bordered w-100">
+            <table id="lista_usuarios" class="table table-hover table-striped table-bordered w-100">
               <thead>
                 <tr>
                   <th>N°</th>

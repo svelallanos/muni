@@ -11,9 +11,9 @@ class Roles extends Controllers
     parent::verificarLogin(true);
     parent::verificarPermiso(1, true);
     $data['page_id'] = 3;
-    $data['page_tag'] = "Biblioteca - IESP San Lucas";
-    $data['page_title'] = "Biblioteca San Lucas";
-    $data['page_name'] = "Roles";
+    $data['page_tag'] = "MDESV - Sistema Caja";
+    $data['page_title'] = ":. Roles - Sistema Caja";
+    $data['page_name'] = "Lista de Roles";
     $data['page_css'] = "roles/roles";
     $data['page_function_js'] = "roles/functions_roles";
     $data['lista_roles'] = $this->model->selectsRoles();
@@ -43,8 +43,8 @@ class Roles extends Controllers
     }
 
     $data['page_id'] = 3;
-    $data['page_tag'] = "Biblioteca - IESP San Lucas";
-    $data['page_title'] = "Biblioteca San Lucas";
+    $data['page_tag'] = "MDESV - Sistema Caja";
+    $data['page_title'] = ":. Editar Roles - Sistema Caja";
     $data['page_name'] = "Editar Rol";
     $data['page_css'] = "roles/editar";
     $data['page_function_js'] = "roles/functions_editar";
@@ -61,8 +61,8 @@ class Roles extends Controllers
     parent::verificarPermiso(1, true);
 
     $data['page_id'] = 3;
-    $data['page_tag'] = "Biblioteca - IESP San Lucas";
-    $data['page_title'] = "Biblioteca San Lucas";
+    $data['page_tag'] = "MDESV - Sistema Caja";
+    $data['page_title'] = ":. Nuevo Rol - Sistema Caja";
     $data['page_name'] = "Nuevo Rol";
     $data['page_css'] = "roles/nuevo";
     $data['page_function_js'] = "roles/functions_roles";

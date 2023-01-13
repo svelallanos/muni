@@ -1,6 +1,7 @@
 $(document).ready(function () {
   registrarRol();
   eliminarRol();
+  cargarRoles();
 });
 
 function registrarRol() {
@@ -75,5 +76,11 @@ function eliminarRol() {
     })
 
     console.log(roles_id);
+  });
+}
+
+const cargarRoles = () => {
+  $('#tb_roles').DataTable({
+    language: languajeDefault,
   });
 }

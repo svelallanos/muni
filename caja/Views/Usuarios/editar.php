@@ -3,7 +3,7 @@
 
   <div class="pagetitle">
     <div class="menu-second d-flex justify-content-between">
-      <h1>Usuarios</h1>
+      <h1><?= !empty($data['page_name']) ? $data['page_name'] : 'Sin Nombre' ?></h1>
       <a href="<?= base_url() ?>Usuarios" class="btn btn-sm btn-purple"><i class="fa-solid fa-reply"></i> Retornar</a>
     </div>
     <nav class="d-flex justify-content-between align-items-center">
