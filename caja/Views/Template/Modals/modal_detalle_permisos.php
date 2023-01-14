@@ -22,27 +22,28 @@
             </div>
           </div>
           <div class="col-md-12">
-            <div class="card card-collapsable">
-              <a class="card-header" href="#lista_permisos_usuario" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="lista_permisos_usuario">
-                Lista de Permisos
-                <div class="card-collapsable-arrow">
-                  <i class="fas fa-chevron-down"></i>
-                </div>
-              </a>
-              <div class="collapse" id="lista_permisos_usuario">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table display">
-                      <thead>
-                        <tr>
-                          <th class="text-center">N°</th>
-                          <th>PERMISO</th>
-                          <th>ACCIONES</th>
-                        </tr>
-                      </thead>
-                      <tbody id="tb_permiso_personzalizados">
-                      </tbody>
-                    </table>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="lista_permisos_delete">
+                  <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Lista de Permisos
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="lista_permisos_delete" data-bs-parent="#accordionExample" style="">
+                  <div class="accordion-body">
+                    <div class="table-responsive">
+                      <table class="table display">
+                        <thead>
+                          <tr>
+                            <th class="text-center">N°</th>
+                            <th>PERMISO</th>
+                            <th>ACCIONES</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tb_permiso_personzalizados">
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -64,7 +65,7 @@
       </div>
       <div class="modal-body">
         <div class="table-responsive">
-          <table id="tb_usuarios" class="display compact w-100">
+          <table id="tb_usuarios" class="table table-hover table-bordered table-striped w-100">
             <thead>
               <tr>
                 <th>N°</th>

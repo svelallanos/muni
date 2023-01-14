@@ -72,3 +72,28 @@ function printHTMLRequired()
             </div>
         </div>';
 }
+
+function printReloadPage()
+{
+    echo '<div id="close_page" class="actualizar_page hide">
+    <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            ACTUALIZAR PÁGINA
+        </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+        <div class="accordion-body p-1">
+        <div class="card-body p-2 small">
+        Para visualizar los cambios actualiza la página <span class="fw-bold text-blue">Click en el botón</span>. <button onclick="location.reload()" title="Actualizar página" class="btn btn-sm btn-icon btn-primary"><i class="feather-loader"></i></button>
+      </div>
+      <div class="text-center">
+        <button title="cerrar" class="btn_close_page btn btn-sm m-2 mt-0 btn-icon btn-danger"><i class="feather-x-circle"></i></button>
+      </div>
+        </div>
+        </div>
+    </div>
+</div>
+  </div>';
+}

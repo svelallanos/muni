@@ -219,15 +219,11 @@ class Usuarios extends Controllers
 
     foreach ($auxUsuariosSinBloquear as $key => $value) {
       $value['usuarios_fechacreacion'] = new DateTime(str_replace(' ', 'T', $value['usuarios_fechacreacion']) . 'America/Lima');
-
       $auxUsuariosSinBloquear[$key]['numero'] = '<div class="text-center">' . ($key + 1) . '</div>';
       $auxUsuariosSinBloquear[$key]['usuarios'] = $value['usuarios_nombres'] . ' ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'];
-      $auxUsuariosSinBloquear[$key]['fechacreacion'] = '<div class="text-center"><span class="fw-700">' . $value['usuarios_fechacreacion']->format('h:i A') . '</span> - ' . $value['usuarios_fechacreacion']->format('d/m/Y') . '</div>';
-
+      $auxUsuariosSinBloquear[$key]['fechacreacion'] = '<div class="text-center"><span class="fw-bold">' . $value['usuarios_fechacreacion']->format('h:i A') . '</span> - ' . $value['usuarios_fechacreacion']->format('d/m/Y') . '</div>';
       $auxUsuariosSinBloquear[$key]['roles'] = (isset($auxRolUsuario[$value['usuarios_id']])) ? $auxRolUsuario[$value['usuarios_id']] : "Sin rol asignado.";
-
       $auxUsuariosSinBloquear[$key]['estado'] = '<div class="text-center"><span class="badge fw-bold rounded-pill text-success border bg-success-soft">Activo</span></div>';
-
       $auxUsuariosSinBloquear[$key]['options'] = '<div class="text-center"><a href="Usuarios/editar?usuarios_id=' . $value['usuarios_id'] . '" class="btn btn-sm border text-body border-black btn-warning btn_editar_usuario" title="Editar usuario"><i class="fa-solid fa-user-pen"></i></a></div>';
     }
 
@@ -244,7 +240,7 @@ class Usuarios extends Controllers
       $lista_usuarios[$key]['numero'] = '<div class="text-center">' . ($key + 1) . '</div>';
       $lista_usuarios[$key]['apellidos'] = $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'];
 
-      $lista_usuarios[$key]['options'] = '<div class="text-center"><button data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" data-usuarios_id="' . $value['usuarios_id'] . '" class="btn btn-outline-danger btn-sm open_modal_agregar_bloqueo" title="Editar usuario"><i class="feather-lock"></i></button></div>';
+      $lista_usuarios[$key]['options'] = '<div class="text-center"><button data-nombres="' . $value['usuarios_nombres'] . ', ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" data-usuarios_id="' . $value['usuarios_id'] . '" class="btn btn-danger btn-sm open_modal_agregar_bloqueo" title="Agregar usuario"><i class="feather-lock"></i></button></div>';
     }
 
     json($lista_usuarios);

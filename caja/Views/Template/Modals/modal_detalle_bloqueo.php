@@ -22,29 +22,29 @@
             </div>
           </div>
           <div class="col-md-12">
-            <div class="card card-collapsable">
-              <a class="card-header" href="#lista_motivos_bloqueo" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="lista_motivos_bloqueo">
-                Lista de Motivos
-                <div class="card-collapsable-arrow">
-                  <i class="fas fa-chevron-down"></i>
-                </div>
-              </a>
-              <div class="collapse" id="lista_motivos_bloqueo">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-hover table-bordered table-striped w-100">
-                      <thead>
-                        <tr>
-                          <th class="text-center">N°</th>
-                          <th>MOTIVO</th>
-                          <th>ACCIONES</th>
-                        </tr>
-                      </thead>
-                      <tbody id="tb_bloqueo_motivos">
-                      </tbody>
-                    </table>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="lista_motivos_delete">
+                  <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Lista de Motivos
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="lista_motivos_delete" data-bs-parent="#accordionExample" style="">
+                  <div class="accordion-body">
+                    <div class="table-responsive">
+                      <table class="table m-0 table-hover table-bordered table-striped w-100">
+                        <thead>
+                          <tr>
+                            <th class="text-center">N°</th>
+                            <th>MOTIVO</th>
+                            <th>ACCIONES</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tb_bloqueo_motivos">
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-
                 </div>
               </div>
             </div>

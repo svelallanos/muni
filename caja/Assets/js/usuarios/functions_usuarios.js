@@ -360,7 +360,7 @@ function eliminarMotivoBloqueo() {
             html += `<tr>
                       <td class="text-center">${element.numero}</td>
                       <td>${element.tipo_bloqueo_descripcion}</td>
-                      <td class="text-center"><button title="Eliminar motivo de bloqueo" data-bloqueo_id="${element.bloqueo_id}" type="button" class="btn btn-sm btn-icon btn-danger-soft text-red border border-red btn_eliminar_bloqueo"><i class="feather-trash-2"></i></button></td>
+                      <td class="text-center"><button title="Eliminar motivo de bloqueo" data-bloqueo_id="${element.bloqueo_id}" type="button" class="btn btn-sm btn-icon btn-danger text-red border border-red btn_eliminar_bloqueo"><i class="feather-trash-2"></i></button></td>
                     </tr>`;
           });
         }
