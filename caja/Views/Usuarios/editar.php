@@ -8,7 +8,7 @@
     </div>
     <nav class="d-flex justify-content-between align-items-center">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">Mantenimientos</li>
+        <li class="breadcrumb-item">Configuraciones</li>
         <li class="breadcrumb-item"><a href="<?= base_url() ?>Usuarios">Usuarios</a></li>
         <li class="breadcrumb-item active">Editar</li>
       </ol>

@@ -11,9 +11,10 @@
       </li>
 
       <?php if (verificarPermiso($data, 1) || verificarPermiso($data, 2) || verificarPermiso($data, 3) || verificarPermiso($data, 4)) { ?>
+        <li class="nav-heading fw-bold">PANEL ADMINISTRADOR</li>
         <li class="nav-item">
           <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-            <i class="fa-solid fa-gears" style="width: 20px;"></i><span>Mantenimientos</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="fa-solid fa-gears" style="width: 20px;"></i><span>Configuraciones</span><i class="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
             <?php if (verificarPermiso($data, 1)) { ?>
@@ -47,18 +48,18 @@
           </ul>
         </li>
       <?php } ?>
-
+      <li class="nav-heading fw-bold">MODULOS</li>
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text" style="width: 20px;"></i><span>Mantenimientos</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Comprobantes</span>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="forms-layouts.html">
               <i class="bi bi-circle"></i><span>Form Layouts</span>
             </a>
@@ -72,10 +73,11 @@
             <a href="forms-validation.html">
               <i class="bi bi-circle"></i><span>Form Validation</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </li><!-- End Forms Nav -->
 
+      <?php if (verificarPermiso($data, 99)) { ?>
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -190,7 +192,7 @@
           <span>Blank</span>
         </a>
       </li><!-- End Blank Page Nav -->
-
+      <?php } ?>
     </ul>
 
   </aside><!-- End Sidebar-->

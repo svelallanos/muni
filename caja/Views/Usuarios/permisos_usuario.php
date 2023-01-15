@@ -6,7 +6,7 @@
     </div>
     <nav class="d-flex justify-content-between align-items-center">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">Mantenimientos</li>
+        <li class="breadcrumb-item">Configuraciones</li>
         <li class="breadcrumb-item active"><a href="<?= base_url() ?>Usuarios/permisos_personalizados">Permisos Personalizados</a></li>
         <li class="breadcrumb-item active">Permisos Usuario</li>
       </ol>

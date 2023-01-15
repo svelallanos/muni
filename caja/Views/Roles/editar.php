@@ -5,7 +5,7 @@
     <h1><?= !empty($data['page_name']) ? $data['page_name'] : 'Sin Nombre' ?></h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">Mantenimientos</li>
+        <li class="breadcrumb-item">Configuraciones</li>
         <li class="breadcrumb-item"><a href="<?= base_url() ?>Roles">Roles</a></li>
         <li class="breadcrumb-item active">Editar</li>
       </ol>
