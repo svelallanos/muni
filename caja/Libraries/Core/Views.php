@@ -6,7 +6,7 @@ class Views
     if ($controllerPadre == true) {
       $data['permisosUser'] = $controller->permisosUser;
       // $data['rolesUser'] = $controller->rolesUser;
-      $data['datosUserBiblioteca'] = $controller->datosUserBiblioteca;
+      $data['datosUserCaja'] = $controller->datosUserCaja;
     }
 
     // $data['semestreActualObj'] = $controller->semestreAcutual;

@@ -19,8 +19,7 @@ define("PATH_FOTOLIBRO", 'C:/laragon/www/mdesv/caja/Assets/images/libros/');
 
 date_default_timezone_set('America/Lima');
 
-const DB_BIB = 'aesanluc_biblioteca';
-const DB_INT = 'intranet';
+const DB_CAJA = 'mdesv_caja';
 
 const DB_HOST = 'localhost';
 const DB_USER = 'root';

@@ -64,9 +64,9 @@ function json($var = false)
   die;
 }
 
-function location($var = '', bool $biblioteca = true)
+function location($var = '', bool $caja = true)
 {
-  if ($biblioteca) {
+  if ($caja) {
     header('Location: ' . base_url() . $var);
   }
   // else {

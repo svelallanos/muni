@@ -29,7 +29,7 @@ class Login extends Controllers
     $return = array(
       'status' => false,
       'title' => 'ERROR DE SESIÓN',
-      'msg' => 'Error al momento de iniciar sesion en biblioteca.',
+      'msg' => 'Error al momento de iniciar sesion en el sistema de caja de MDESV.',
       'value' => 'error',
       'alert' => false
     );
@@ -56,7 +56,7 @@ class Login extends Controllers
 
     $usuarios = new UsuariosModel();
 
-    // VERIFICAMOS QUE EXISTA EL USUARIO Y EL PASSWORD INGRESADO SEA CORRECTO EN BIBLIOTECA
+    // VERIFICAMOS QUE EXISTA EL USUARIO Y EL PASSWORD INGRESADO SEA CORRECTO EN CAJA
     $seleccionar_usuario = $usuarios->selectUsuarioLogin($strUsuario);
     if ($seleccionar_usuario && password_verify($strPassword, $seleccionar_usuario['usuarios_password'])) {
 
@@ -67,50 +67,22 @@ class Login extends Controllers
         json($return);
       }
 
-      $_SESSION['biblioteca']['usuario_login'] = $seleccionar_usuario['usuarios_login'];
-      $_SESSION['biblioteca']['usuario_dni'] = $seleccionar_usuario['usuarios_dni'];
-      $_SESSION['biblioteca']['usuarios_nombres'] = $seleccionar_usuario['usuarios_nombres'];
-      $_SESSION['biblioteca']['usuarios_paterno'] = $seleccionar_usuario['usuarios_paterno'];
-      $_SESSION['biblioteca']['usuarios_materno'] = $seleccionar_usuario['usuarios_materno'];
-      $_SESSION['biblioteca']['usuarios_email'] = $seleccionar_usuario['usuarios_email'];
-      $_SESSION['biblioteca']['usuarios_foto'] = $seleccionar_usuario['usuarios_foto'];
-      $_SESSION['biblioteca']['usuario_id'] = $seleccionar_usuario['usuarios_id'];
-      $_SESSION['biblioteca']['roles'] = array();
-      $_SESSION['biblioteca']['usuarios_intranet'] = false;
-      $_SESSION['biblioteca']['login_biblioteca'] = true;
-      $_SESSION['biblioteca']['update_pass'] = $seleccionar_usuario['usuarios_updatepassword'];
+      $_SESSION['caja']['usuario_login'] = $seleccionar_usuario['usuarios_login'];
+      $_SESSION['caja']['usuario_dni'] = $seleccionar_usuario['usuarios_dni'];
+      $_SESSION['caja']['usuarios_nombres'] = $seleccionar_usuario['usuarios_nombres'];
+      $_SESSION['caja']['usuarios_paterno'] = $seleccionar_usuario['usuarios_paterno'];
+      $_SESSION['caja']['usuarios_materno'] = $seleccionar_usuario['usuarios_materno'];
+      $_SESSION['caja']['usuarios_email'] = $seleccionar_usuario['usuarios_email'];
+      $_SESSION['caja']['usuarios_foto'] = $seleccionar_usuario['usuarios_foto'];
+      $_SESSION['caja']['usuario_id'] = $seleccionar_usuario['usuarios_id'];
+      $_SESSION['caja']['roles'] = array();
+      $_SESSION['caja']['login_caja'] = true;
+      $_SESSION['caja']['update_pass'] = $seleccionar_usuario['usuarios_updatepassword'];
 
       $roles = $usuarios->getRoles($seleccionar_usuario['usuarios_id']);
       foreach ($roles as $key => $value) {
-        array_push($_SESSION['biblioteca']['roles'], $value['roles_nombre']);
+        array_push($_SESSION['caja']['roles'], $value['roles_nombre']);
       }
-
-      $return['status'] = true;
-      json($return);
-    }
-
-    // VERIFICAMOS QUE EXISTA EL USUARIO Y EL PASSWORD INGRESADO SEA CORRECTO EN INTRANET
-    $seleccionar_usuario = $usuarios->selectUsuarioIntranet($strUsuario);
-    if ($seleccionar_usuario && password_verify($strPassword, $seleccionar_usuario['usuarios_password'])) {
-      $bloqueado = $usuarios->selectMotivoUsuarioIntranetById($seleccionar_usuario['usuarios_id']);
-      if (!empty($bloqueado)) {
-        $return['alert'] = true;
-        $return['motivoBloqueo'] = $bloqueado;
-        json($return);
-      }
-
-      $_SESSION['biblioteca']['usuario_login'] = $seleccionar_usuario['usuarios_dni'];
-      $_SESSION['biblioteca']['usuario_dni'] = $seleccionar_usuario['usuarios_dni'];
-      $_SESSION['biblioteca']['usuarios_nombres'] = $seleccionar_usuario['usuarios_nombres'];
-      $_SESSION['biblioteca']['usuarios_paterno'] = $seleccionar_usuario['usuarios_paterno'];
-      $_SESSION['biblioteca']['usuarios_materno'] = $seleccionar_usuario['usuarios_materno'];
-      $_SESSION['biblioteca']['usuarios_email'] = 'sincorreo@gmail.com';
-      $_SESSION['biblioteca']['usuarios_foto'] = 'sin_foto.png';
-      $_SESSION['biblioteca']['usuario_id'] = $seleccionar_usuario['usuarios_id'];
-      $_SESSION['biblioteca']['roles'] = array('Usuario intranet');
-      $_SESSION['biblioteca']['usuarios_intranet'] = true;
-      $_SESSION['biblioteca']['login_biblioteca'] = true;
-      $_SESSION['biblioteca']['update_pass'] = $seleccionar_usuario['usuarios_updatepassword'];
 
       $return['status'] = true;
       json($return);

@@ -8,8 +8,7 @@ class Mysql extends Conexion
   function __construct()
   {
     $auxConexion = new Conexion();
-    $this->conexionBiblioteca = $auxConexion->conectBiblioteca();
-    $this->conexionIntranet = $auxConexion->conectIntranet();
+    $this->conexionCaja = $auxConexion->conectCaja();
   }
 
   public function insert(string $query, array $arrvalues = array(), string $base = '')
@@ -17,10 +16,8 @@ class Mysql extends Conexion
     $this->strquery = $query;
     $this->arrvalues = $arrvalues;
 
-    if ($base == 'aesanluc_biblioteca') {
-      $insert = $this->conexionBiblioteca->prepare($this->strquery);
-    } elseif ($base == 'intranet') {
-      $insert = $this->conexionIntranet->prepare($this->strquery);
+    if ($base == 'mdesv_caja') {
+      $insert = $this->conexionCaja->prepare($this->strquery);
     } else {
       echo 'Base de datos no especificada.';
       die;
@@ -29,10 +26,8 @@ class Mysql extends Conexion
     $lastInsert = $insert->execute($this->arrvalues);
 
     if ($lastInsert) {
-      if ($base == 'aesanluc_biblioteca') {
-        $lastInsert = $this->conexionBiblioteca->lastInsertId();
-      } elseif ($base == 'intranet') {
-        $lastInsert = $this->conexionIntranet->lastInsertId();
+      if ($base == 'mdesv_caja') {
+        $lastInsert = $this->conexionCaja->lastInsertId();
       }
     } else {
       $lastInsert = 0;
@@ -47,10 +42,8 @@ class Mysql extends Conexion
     $this->strquery = $query;
     $this->arrvalues = $arrvalues;
 
-    if ($base == 'aesanluc_biblioteca') {
-      $update = $this->conexionBiblioteca->prepare($this->strquery);
-    } elseif ($base == 'intranet') {
-      $update = $this->conexionIntranet->prepare($this->strquery);
+    if ($base == 'mdesv_caja') {
+      $update = $this->conexionCaja->prepare($this->strquery);
     } else {
       echo 'Base de datos no especificada.';
       die;
@@ -66,10 +59,8 @@ class Mysql extends Conexion
     $this->strquery = $query;
     $this->arrvalues = $arrvalues;
 
-    if ($base == 'aesanluc_biblioteca') {
-      $result = $this->conexionBiblioteca->prepare($this->strquery);
-    } elseif ($base == 'intranet') {
-      $result = $this->conexionIntranet->prepare($this->strquery);
+    if ($base == 'mdesv_caja') {
+      $result = $this->conexionCaja->prepare($this->strquery);
     } else {
       echo 'Base de datos no especificada.';
       die;
@@ -86,10 +77,8 @@ class Mysql extends Conexion
     $this->strquery = $query;
     $this->arrvalues = $arrvalues;
 
-    if ($base == 'aesanluc_biblioteca') {
-      $result = $this->conexionBiblioteca->prepare($this->strquery);
-    } elseif ($base == 'intranet') {
-      $result = $this->conexionIntranet->prepare($this->strquery);
+    if ($base == 'mdesv_caja') {
+      $result = $this->conexionCaja->prepare($this->strquery);
     } else {
       echo 'Base de datos no especificada.';
       die;
@@ -106,10 +95,8 @@ class Mysql extends Conexion
     $this->strquery = $query;
     $this->arrvalues = $arrvalues;
 
-    if ($base == 'aesanluc_biblioteca') {
-      $result = $this->conexionBiblioteca->prepare($this->strquery);
-    } elseif ($base == 'intranet') {
-      $result = $this->conexionIntranet->prepare($this->strquery);
+    if ($base == 'mdesv_caja') {
+      $result = $this->conexionCaja->prepare($this->strquery);
     } else {
       echo 'Base de datos no especificada.';
       die;

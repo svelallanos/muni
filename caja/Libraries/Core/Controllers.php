@@ -16,7 +16,7 @@ class Controllers
     $this->loadModel();
     $this->isLogin();
 
-    $this->datosUserBiblioteca = $this->defineDatosUserBiblioteca();
+    $this->datosUserCaja = $this->defineDatosUserCaja();
     $this->validarUpdatePassword();
     $this->validarUltimoLoad();
 
@@ -49,85 +49,76 @@ class Controllers
   public function validarUltimoLoad()
   {
     if ($this->isLogin) {
-      if (isset($_SESSION['biblioteca']['last_load'])) {
+      if (isset($_SESSION['caja']['last_load'])) {
         $now = new DateTime('NOW');
-        $lastLoad = $_SESSION['biblioteca']['last_load'];
+        $lastLoad = $_SESSION['caja']['last_load'];
 
         $lastLoad->add(new DateInterval('PT' . TIME_SESSION['horas'] . 'H' . TIME_SESSION['minutos'] . 'M'));
 
         if ($now > $lastLoad) {
-          unset($_SESSION['biblioteca']);
+          unset($_SESSION['caja']);
           location('login');
         } else {
-          $_SESSION['biblioteca']['last_load'] = new DateTime('NOW');
+          $_SESSION['caja']['last_load'] = new DateTime('NOW');
         }
       } else {
-        $_SESSION['biblioteca']['last_load'] = new DateTime('NOW');
+        $_SESSION['caja']['last_load'] = new DateTime('NOW');
       }
     }
   }
 
   public function isLogin()
   {
-    if (isset($_SESSION['biblioteca']['login_biblioteca']) && $_SESSION['biblioteca']['login_biblioteca'] == true) {
+    if (isset($_SESSION['caja']['login_caja']) && $_SESSION['caja']['login_caja'] == true) {
       $this->isLogin = true;
     } else {
       $this->isLogin = false;
 
       if (isset($_SESSION)) {
-        unset($_SESSION['biblioteca']);
+        unset($_SESSION['caja']);
       }
     }
   }
 
-  public function defineDatosUserBiblioteca()
+  public function defineDatosUserCaja()
   {
-    $datosUserBiblioteca = array(
+    $datosUserCaja = array(
       'usuarios_nombres' => 'Invitado #2022',
       'usuarios_materno' => '',
-      //'usuarios_dni' => '0',
+      // 'usuarios_dni' => '0',
       'usuarios_paterno' => ''
     );
 
     if ($this->isLogin) {
 
       $usuarios = new UsuariosModel();
-      $sesion_biblioteca  = true;
-      if (!$_SESSION['biblioteca']['usuarios_intranet']) {
-        $datosUserBiblioteca = $usuarios->selectUsuarioLogin($_SESSION['biblioteca']['usuario_login']);
-      } else {
-        $datosUserBiblioteca = $usuarios->selectUsuarioIntranet($_SESSION['biblioteca']['usuario_login']);
-        $sesion_biblioteca  = false;
-      }
+      $datosUserCaja = $usuarios->selectUsuarioLogin($_SESSION['caja']['usuario_login']);
 
-      if ($datosUserBiblioteca) {
+      if ($datosUserCaja) {
         // Validar si el usuarios esta bloqueado
-        if ($sesion_biblioteca) {
-          $bloqueado = $usuarios->selectMotivoUsuarioById($datosUserBiblioteca['usuarios_id']);
-        } else {
-          $bloqueado = $usuarios->selectMotivoUsuarioIntranetById($datosUserBiblioteca['usuarios_id']);
-        }
 
-        if (!empty($bloqueado) || $datosUserBiblioteca['usuarios_estado'] != 1) {
+        $bloqueado = $usuarios->selectMotivoUsuarioById($datosUserCaja['usuarios_id']);
+
+        if (!empty($bloqueado) || $datosUserCaja['usuarios_estado'] != 1) {
           $this->isLogin = false;
-          unset($_SESSION['biblioteca']);
+          unset($_SESSION['caja']);
         }
       } else {
         $this->isLogin = false;
-        unset($_SESSION['biblioteca']);
+        unset($_SESSION['caja']);
       }
     }
 
-    return $datosUserBiblioteca;
+    return $datosUserCaja;
   }
   public function validarUpdatePassword()
   {
     if ($this->isLogin) {
-      $sessionDate = $_SESSION['biblioteca']['update_pass'];
-      $dbDate = $this->datosUserBiblioteca['usuarios_updatepassword'];
+      $sessionDate = $_SESSION['caja']['update_pass'];
+      $dbDate = $this->datosUserCaja['usuarios_updatepassword'];
 
       if ($sessionDate != $dbDate) {
-        unset($_SESSION['biblioteca']);
+        unset($_SESSION['caja']);
         location('login');
       }
     }
@@ -141,22 +132,15 @@ class Controllers
       $permisosModel = new PermisosModel();
       $array = array();
 
-      if ($_SESSION['biblioteca']['usuarios_intranet']) {
-        $permisosIntranet = $permisosModel->getPermisosRolById(4);
-        foreach ($permisosIntranet as $key => $value) {
-          $array[$value['permiso_id']] = true;
-        }
-      } else {
-        $permisos = $permisosModel->getPermisos($this->datosUserBiblioteca['usuarios_id']);
-        $permisosUsuario = $permisosModel->getPermisosUsuario($this->datosUserBiblioteca['usuarios_id']);
+      $permisos = $permisosModel->getPermisos($this->datosUserCaja['usuarios_id']);
+      $permisosUsuario = $permisosModel->getPermisosUsuario($this->datosUserCaja['usuarios_id']);
 
-        foreach ($permisos as $key => $value) {
-          $array[$value['permiso_id']] = true;
-        }
+      foreach ($permisos as $key => $value) {
+        $array[$value['permiso_id']] = true;
+      }
 
-        foreach ($permisosUsuario as $key => $value) {
-          $array[$value['permiso_id']] = true;
-        }
+      foreach ($permisosUsuario as $key => $value) {
+        $array[$value['permiso_id']] = true;
       }
 
       return $array;
@@ -168,7 +152,7 @@ class Controllers
     if ($this->isLogin) {
       return true;
     } else {
-      unset($_SESSION['biblioteca']);
+      unset($_SESSION['caja']);
       if ($redirigir) {
         location('login');
       } else {

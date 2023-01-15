@@ -9,7 +9,7 @@ class Roles extends Controllers
   public function roles()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(1, true);
+    parent::verificarPermiso(2, true);
     $data['page_id'] = 3;
     $data['page_tag'] = "MDESV - Sistema Caja";
     $data['page_title'] = ":. Roles - Sistema Caja";
@@ -23,7 +23,7 @@ class Roles extends Controllers
   public function editar()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(1, true);
+    parent::verificarPermiso(2, true);
 
     if (!$_GET || ($_SERVER['REQUEST_METHOD'] !== 'GET') || !isset($_GET['roles_id']) || intval($_GET['roles_id']) === 0) {
       location('Roles');
@@ -58,7 +58,7 @@ class Roles extends Controllers
   public function nuevo()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(1, true);
+    parent::verificarPermiso(2, true);
 
     $data['page_id'] = 3;
     $data['page_tag'] = "MDESV - Sistema Caja";
@@ -73,7 +73,7 @@ class Roles extends Controllers
   public function registrarRol()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(1, true);
+    parent::verificarPermiso(2, true);
 
     $return = [
       'status' => false,
@@ -157,7 +157,7 @@ class Roles extends Controllers
   public function updateRolPermisos()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(1, true);
+    parent::verificarPermiso(2, true);
 
     $return = [
       'status' => false,
@@ -241,7 +241,7 @@ class Roles extends Controllers
   public function deleteRol()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(1, true);
+    parent::verificarPermiso(2, true);
     
     $return = [
       'status' => false,

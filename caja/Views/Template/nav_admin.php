@@ -10,33 +10,43 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="fa-solid fa-gears" style="width: 20px;"></i><span>Mantenimientos</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= base_url() ?>Usuarios">
-              <i class="bi bi-circle"></i><span>Usuarios</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= base_url() ?>Roles">
-              <i class="bi bi-circle"></i><span>Roles</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= base_url() ?>Usuarios/bloqueos">
-              <i class="bi bi-circle"></i><span>Bloqueos</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= base_url() ?>Usuarios/permisos_personalizados">
-              <i class="bi bi-circle"></i><span>Permisos Personalizados</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
+      <?php if (verificarPermiso($data, 1) || verificarPermiso($data, 2) || verificarPermiso($data, 3) || verificarPermiso($data, 4)) { ?>
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+            <i class="fa-solid fa-gears" style="width: 20px;"></i><span>Mantenimientos</span><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+            <?php if (verificarPermiso($data, 1)) { ?>
+              <li>
+                <a href="<?= base_url() ?>Usuarios">
+                  <i class="bi bi-circle"></i><span>Usuarios</span>
+                </a>
+              </li>
+            <?php } ?>
+            <?php if (verificarPermiso($data, 2)) { ?>
+              <li>
+                <a href="<?= base_url() ?>Roles">
+                  <i class="bi bi-circle"></i><span>Roles</span>
+                </a>
+              </li>
+            <?php } ?>
+            <?php if (verificarPermiso($data, 3)) { ?>
+              <li>
+                <a href="<?= base_url() ?>Usuarios/bloqueos">
+                  <i class="bi bi-circle"></i><span>Bloqueos</span>
+                </a>
+              </li>
+            <?php } ?>
+            <?php if (verificarPermiso($data, 4)) { ?>
+              <li>
+                <a href="<?= base_url() ?>Usuarios/permisos_personalizados">
+                  <i class="bi bi-circle"></i><span>Permisos Personalizados</span>
+                </a>
+              </li>
+            <?php } ?>
+          </ul>
+        </li>
+      <?php } ?>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">

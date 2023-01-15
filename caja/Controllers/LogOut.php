@@ -9,7 +9,7 @@ class LogOut extends Controllers
 
   public function logOut($contesto = null)
   {
-    unset($_SESSION['biblioteca']);
+    unset($_SESSION['caja']);
     location();
   }
 }

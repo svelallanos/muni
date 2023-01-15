@@ -12,7 +12,7 @@ class Usuarios extends Controllers
   public function usuarios()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(3, true);
+    parent::verificarPermiso(1, true);
 
     $data['page_id'] = 6;
     $data['page_tag'] = "MDESV - Sistema Caja";
@@ -23,24 +23,10 @@ class Usuarios extends Controllers
     $this->views->getView($this, "usuarios", $data);
   }
 
-  public function usuarios_intranet()
-  {
-    parent::verificarLogin(true);
-    parent::verificarPermiso(4, true);
-
-    $data['page_id'] = 7;
-    $data['page_tag'] = "Biblioteca - IESP San Lucas";
-    $data['page_title'] = "Biblioteca San Lucas";
-    $data['page_name'] = "Lista de Usuarios de Intranet";
-    $data['page_css'] = "usuarios/usuarios";
-    $data['page_function_js'] = "usuarios/functions_usuarios";
-    $this->views->getView($this, "usuarios_intranet", $data);
-  }
-
   public function nuevo()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(3, true);
+    parent::verificarPermiso(1, true);
 
     $seleccionar_roles = $this->model->selectsRoles();
 
@@ -57,7 +43,7 @@ class Usuarios extends Controllers
   public function editar()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(3, true);
+    parent::verificarPermiso(1, true);
 
     if (!$_GET || !isset($_GET['usuarios_id']) || intval($_GET['usuarios_id']) === 0) {
       location('Usuarios/lista_usuario');
@@ -92,7 +78,7 @@ class Usuarios extends Controllers
   public function bloqueos()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(8, true);
+    parent::verificarPermiso(3, true);
 
     $data['page_id'] = 11;
     $data['page_tag'] = "MDESV - Sistema Caja";
@@ -107,7 +93,7 @@ class Usuarios extends Controllers
   public function permisos_personalizados()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(9, true);
+    parent::verificarPermiso(4, true);
 
     $data['page_id'] = 11;
     $data['page_tag'] = "MDESV - Sistema Caja";
@@ -121,7 +107,7 @@ class Usuarios extends Controllers
   public function permisos_usuario()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(9, true);
+    parent::verificarPermiso(4, true);
 
     if(!$_GET || $_SERVER['REQUEST_METHOD'] !== 'GET' || !isset($_GET['usuarios_id']) || intval($_GET['usuarios_id']) === 0){
       location('Usuarios/permisos_personalizados');
@@ -188,7 +174,7 @@ class Usuarios extends Controllers
   public function selectsUsers()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(3, true);
+    parent::verificarPermiso(1, true);
 
     $usuarios_bloqueados = $this->model->usuariosBloqueadosGroupBy();
     $auxUsuariosBloqueados = array();
@@ -233,7 +219,7 @@ class Usuarios extends Controllers
   public function selects_usuariosforBloqueo()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(8, true);
+    parent::verificarPermiso(3, true);
 
     $lista_usuarios = $this->model->selectsUsuariosGlobal();
     foreach ($lista_usuarios as $key => $value) {
@@ -249,7 +235,7 @@ class Usuarios extends Controllers
   public function selects_usuariosforPermisos()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(9, true);
+    parent::verificarPermiso(4, true);
 
     $lista_usuarios = $this->model->selectsUsuariosGlobal();
     foreach ($lista_usuarios as $key => $value) {
@@ -262,90 +248,10 @@ class Usuarios extends Controllers
     json($lista_usuarios);
   }
 
-  public function selectsUsuariosIntranet()
-  {
-    parent::verificarLogin(true);
-    parent::verificarPermiso(4, true);
-
-    $lista_usuarios_intranet = $this->model->selectsUsuariosIntranet();
-    $lista_usuarios_bloqueados = $this->model->selectUsuariosBloqueados();
-    $lista_alumnos_biblioteca = $this->model->selectsUsuariosGlobal();
-    $seleccionar_rol_usuario = $this->model->selectsRolUsuario();
-
-    $auxRolesUsuario = array();
-    foreach ($seleccionar_rol_usuario as $key => $value) {
-      if (!isset($auxRolesUsuario[$value['usuarios']])) {
-        $auxRolesUsuario[$value['usuarios']] = $value['roles_nombre'];
-      }
-    }
-
-    $auxUsuariosBloqueados = array();
-    foreach ($lista_usuarios_bloqueados as $key => $value) {
-      if (!isset($auxUsuariosBloqueados[$value['id_alumno']])) {
-        $auxUsuariosBloqueados[$value['id_alumno']] = 'bloqueado';
-      }
-    }
-
-    $auxusuariosByDni = array();
-    foreach ($lista_alumnos_biblioteca as $key => $value) {
-      $auxusuariosByDni[$value['usuarios_dni']] = $value;
-    }
-
-    $auxAlumnosBiblioteca = array();
-    $cont = 0;
-    foreach ($lista_usuarios_intranet as $key => $value) {
-      if (!isset($auxusuariosByDni[$value['usuarios_dni']])) {
-        $auxAlumnosBiblioteca[$cont++] = $value;
-      }
-    }
-
-    // validamos que no exista por nombre y apellidos
-    $auxAlumnosSinCuenta = array();
-    $cont = 0;
-    foreach ($auxAlumnosBiblioteca as $key => $value) {
-      if (is_string($value['usuarios_dni'])) {
-        $select_usuario_nombreApellido = $this->model->selectUsuarioNombreApellido($value['usuarios_nombres'], $value['usuarios_paterno'], $value['usuarios_materno']);
-
-        if (!$select_usuario_nombreApellido) {
-          $auxAlumnosSinCuenta[$cont++] = $value;
-        }
-      }
-    }
-
-    foreach ($auxAlumnosSinCuenta as $key => $value) {
-
-      $rol_usuario = isset($auxRolesUsuario[$value['usuarios_id']]) ? $auxRolesUsuario[$value['usuarios_id']] : 'Nigún Rol asignado';
-
-      $value['usuarios_fechacreacion'] = new DateTime(str_replace(' ', 'T', $value['usuarios_fechacreacion']) . 'America/Lima');
-      $auxAlumnosSinCuenta[$key]['numero'] = '<div class="text-center">' . ($key + 1) . '</div>';
-      if (isset($auxUsuariosBloqueados[$value['usuarios_id']])) {
-        $auxAlumnosSinCuenta[$key]['estado'] = '<div class="text-center"><span class="badge rounded-pill border text-danger bg-danger-soft">Bloqueado</span></div>';
-        $estado = 0;
-      } else {
-        $auxAlumnosSinCuenta[$key]['estado'] = '<div class="text-center"><span class="badge rounded-pill border text-success bg-success-soft">Activo</span></div>';
-        $estado = 1;
-      }
-      $auxAlumnosSinCuenta[$key]['nombre_completo'] = $value['usuarios_nombres'] . ' ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'];
-
-      $auxAlumnosSinCuenta[$key]['options'] = '<div class="text-center"><button 
-      data-nombre="' . $value['usuarios_nombres'] . ' ' . $value['usuarios_paterno'] . ' ' . $value['usuarios_materno'] . '" 
-      data-dni="' . $value['usuarios_dni'] . '" 
-      data-estado="' . $estado . '" 
-      data-hora="' . $value['usuarios_fechacreacion']->format('h:i A') . '"
-      data-fecha="' . $value['usuarios_fechacreacion']->format('d/m/Y') . '"
-      data-rol="' . $rol_usuario . '" 
-      type="button" 
-      title="Ver Usuario" 
-      class="btn btn-pink btn_ver_usuario_intranet"><i class="fa-solid fa-id-card"></i></i></button></div>';
-    }
-
-    json($auxAlumnosSinCuenta);
-  }
-
   public function selectsUsuariosBloqueados()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(8, true);
+    parent::verificarPermiso(3, true);
 
     $usuarios_bloqueados = $this->model->usuarios_bloqueados();
 
@@ -387,7 +293,7 @@ class Usuarios extends Controllers
   public function selectsUsuarioBloqueos()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(8, true);
+    parent::verificarPermiso(3, true);
 
     $return = array(
       'status' => false,
@@ -425,7 +331,7 @@ class Usuarios extends Controllers
   public function selectsPermisoPersonalizados()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(9, true);
+    parent::verificarPermiso(4, true);
 
     $return = array(
       'status' => false,
@@ -463,7 +369,7 @@ class Usuarios extends Controllers
   public function selectsPermisosPersonalizados()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(9, true);
+    parent::verificarPermiso(4, true);
 
     $permisos_personalizados = $this->model->usuarios_permisoPersonalizados();
 
@@ -505,7 +411,7 @@ class Usuarios extends Controllers
   public function agregarUsuario()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(3, true);
+    parent::verificarPermiso(1, true);
 
     $return = array(
       'status' => false,
@@ -624,7 +530,7 @@ class Usuarios extends Controllers
   public function insertUsuarioBloqueo()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(8, true);
+    parent::verificarPermiso(3, true);
 
     $return = array(
       'status' => false,
@@ -673,7 +579,7 @@ class Usuarios extends Controllers
   public function updateUsuario()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(3, true);
+    parent::verificarPermiso(1, true);
 
     $return = array(
       'status' => false,
@@ -800,7 +706,7 @@ class Usuarios extends Controllers
   public function updateFotoPefilUsuario()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(3, true);
+    parent::verificarPermiso(1, true);
 
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
       location('usuarios/lista_usuario');
@@ -890,7 +796,7 @@ class Usuarios extends Controllers
   public function deleteMotivoBloqueo()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(8, true);
+    parent::verificarPermiso(3, true);
 
     $return = array(
       'status' => false,
@@ -933,7 +839,7 @@ class Usuarios extends Controllers
   public function deletePermisoPersonalizado()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(9, true);
+    parent::verificarPermiso(4, true);
 
     $return = array(
       'status' => false,
@@ -976,7 +882,7 @@ class Usuarios extends Controllers
   public function desbloquearUsuario()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(8, true);
+    parent::verificarPermiso(3, true);
 
     $return = array(
       'status' => false,
@@ -1012,7 +918,7 @@ class Usuarios extends Controllers
   public function deletePermisosPersonalizados()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(9, true);
+    parent::verificarPermiso(4, true);
 
     $return = array(
       'status' => false,
@@ -1048,7 +954,7 @@ class Usuarios extends Controllers
   public function updateUsuarioPermisos()
   {
     parent::verificarLogin(true);
-    parent::verificarPermiso(9, true);
+    parent::verificarPermiso(4, true);
 
     $return = [
       'status' => false,
