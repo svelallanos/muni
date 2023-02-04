@@ -51,29 +51,29 @@
       <li class="nav-heading fw-bold">MODULOS</li>
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text" style="width: 20px;"></i><span>Mantenimientos</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text" style="width: 20px;"></i><span>Modulo Caja</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Comprobantes</span>
-            </a>
-          </li>
-          <!-- <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
+            <a href="<?= base_url() ?>Categorias">
+              <i class="bi bi-circle"></i><span>Categorias</span>
             </a>
           </li>
           <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
+            <a href="<?= base_url() ?>Categorias/generica">
+              <i class="bi bi-circle"></i><span>Generica</span>
             </a>
           </li>
           <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
+            <a href="<?= base_url() ?>Categorias/subgenerica">
+              <i class="bi bi-circle"></i><span>Sub Generica</span>
             </a>
-          </li> -->
+          </li>
+          <li>
+            <a href="<?= base_url() ?>Categorias/especifica">
+              <i class="bi bi-circle"></i><span>Especifica</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Forms Nav -->
 
