@@ -51,12 +51,12 @@
       <li class="nav-heading fw-bold">MODULOS</li>
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text" style="width: 20px;"></i><span>Mantenimientos</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text" style="width: 20px;"></i><span>Modulo Caja</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Comprobantes</span>
+            <a href="categorias">
+              <i class="bi bi-circle"></i><span>Categorias</span>
             </a>
           </li>
           <!-- <li>
